@@ -53,22 +53,22 @@ public class EditSemester_Gui extends JPanel {
 	static JComponent pnlTreeContainer;
 	static JComponent pnlTree;
 	static String s2;
-	static boolean change_1;
-	static boolean change_2;
-	static boolean change_3;
-	static boolean change_4;
-	static boolean change_5;
-	static boolean change_6;
-	static boolean change_7;
-	static boolean change_8;
-	static boolean change_9;
-	static boolean change_10;
-	static boolean change_11;
-	static boolean change_12;
-	static boolean change_13;
-	static boolean change_14;
-	static boolean change_15;
-	static boolean change_16;
+	//static boolean change_1;
+	//static boolean change_2;
+	//static boolean change_3;
+	//static boolean change_4;
+	//static boolean change_5;
+	//static boolean change_6;
+	//static boolean change_7;
+	//static boolean change_8;
+	//static boolean change_9;
+	//static boolean change_10;
+	//static boolean change_11;
+	//static boolean change_12;
+	//static boolean change_13;
+	//static boolean change_14;
+	//static boolean change_15;
+	//static boolean change_16;
 	
 	public EditSemester_Gui(String s) {
 
@@ -395,22 +395,22 @@ public class EditSemester_Gui extends JPanel {
 		Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
 		Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 450, 10, 0);
 
-		change_1 = false;
-		change_2 = false;
-		change_3 = false;
-		change_4 = false;
-		change_5 = false;
-		change_6 = false;
-		change_7 = false;
-		change_8 = false;
-		change_9 = false;
-		change_10 = false;
-		change_11 = false;
-		change_12 = false;
-		change_13 = false;
-		change_14 = false;
-		change_15 = false;
-		change_16 = false;
+		//change_1 = false;
+		//change_2 = false;
+		//change_3 = false;
+		//change_4 = false;
+		//change_5 = false;
+		//change_6 = false;
+		//change_7 = false;
+		//change_8 = false;
+		//change_9 = false;
+		//change_10 = false;
+		//change_11 = false;
+		//change_12 = false;
+		//change_13 = false;
+		//change_14 = false;
+		//change_15 = false;
+		//change_16 = false;
 		
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -482,31 +482,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass1.setContentAreaFilled(false);
 		class1.add(btnDeleteClass1);
 		
-		JTextField fillerClass1 = new JTextField("Class 1");
+		JLabel fillerClass1 = new JLabel("Class 1");
 		fillerClass1.setFont(f2);
-		fillerClass1.addMouseListener(new PopClickListener2());
+		fillerClass1.addMouseListener(PopClickListener.createDialog(fillerClass1, "Class 1"));
 		class1.add(fillerClass1);
 
-		fillerClass1.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass1.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+				//JTextField tField = (JTextField) fEvt.getSource();
+				//tField.selectAll();
+			//}
+		//});
 
-		fillerClass1.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_1 = true;
-			}
+		//fillerClass1.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+				//change_1 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_1 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+				//change_1 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_1 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+				//change_1 = true;
+			//}
+		//});
 		
 		JLabel class1Grade = new JLabel("Grade: 0");
 		class1Grade.setFont(f2);
@@ -518,31 +518,31 @@ public class EditSemester_Gui extends JPanel {
 		class1LetterGrade.setBorder(paddingBorder1);
 		class1.add(class1LetterGrade);
 
-		JTextField class1Hours = new JTextField("Hours: 0");
+		JLabel class1Hours = new JLabel("Hours: 0");
 		class1Hours.setFont(f2);
 		class1Hours.setBorder(paddingBorder1);
 		class1.add(class1Hours);
 
-		class1Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class1Hours.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+				//JTextField tField = (JTextField) fEvt.getSource();
+				//tField.selectAll();
+			//}
+		//});
 
-		class1Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_9 = true;
-			}
+		//class1Hours.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+				//change_9 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_9 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+				//change_9 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_9 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+				//change_9 = true;
+			//}
+		//});
 		
 		JLabel class1QualityPoints = new JLabel("Quality Points: 0");
 		class1QualityPoints.setFont(f2);
@@ -555,31 +555,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass2.setContentAreaFilled(false);
 		class2.add(btnDeleteClass2);
 		
-		JTextField fillerClass2 = new JTextField("Class 2");
+		JLabel fillerClass2 = new JLabel("Class 2");
 		fillerClass2.setFont(f2);
-		fillerClass2.addMouseListener(new PopClickListener2());
+		fillerClass2.addMouseListener(PopClickListener.createDialog(fillerClass2, "Class 2"));
 		class2.add(fillerClass2);
 
-		fillerClass2.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass2.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+				//JTextField tField = (JTextField) fEvt.getSource();
+				//tField.selectAll();
+			//}
+		//});
 
-		fillerClass2.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_2 = true;
-			}
+		//fillerClass2.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_2 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_2 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+				//change_2 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_2 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+				//change_2 = true;
+			//}
+		//});
 		
 		JLabel class2Grade = new JLabel("Grade: 0");
 		class2Grade.setFont(f2);
@@ -591,31 +591,31 @@ public class EditSemester_Gui extends JPanel {
 		class2LetterGrade.setBorder(paddingBorder1);
 		class2.add(class2LetterGrade);
 
-		JTextField class2Hours = new JTextField("Hours: 0");
+		JLabel class2Hours = new JLabel("Hours: 0");
 		class2Hours.setFont(f2);
 		class2Hours.setBorder(paddingBorder1);
 		class2.add(class2Hours);
 
-		class2Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class2Hours.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		class2Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_10 = true;
-			}
+		//class2Hours.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_10 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_10 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_10 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_10 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_10 = true;
+			//}
+		//});
 		
 		
 		JLabel class2QualityPoints = new JLabel("Quality Points: 0");
@@ -629,31 +629,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass3.setContentAreaFilled(false);
 		class3.add(btnDeleteClass3);
 		
-		JTextField fillerClass3 = new JTextField("Class 3");
+		JLabel fillerClass3 = new JLabel("Class 3");
 		fillerClass3.setFont(f2);
-		fillerClass3.addMouseListener(new PopClickListener2());
+		fillerClass3.addMouseListener(PopClickListener.createDialog(fillerClass3, "Class 3"));
 		class3.add(fillerClass3);
 
-		fillerClass3.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass3.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		fillerClass3.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_3 = true;
-			}
+		//fillerClass3.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_3 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_3 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_3 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_3 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_3 = true;
+			//}
+		//});
 		
 		JLabel class3Grade = new JLabel("Grade: 0");
 		class3Grade.setFont(f2);
@@ -665,31 +665,31 @@ public class EditSemester_Gui extends JPanel {
 		class3LetterGrade.setBorder(paddingBorder1);
 		class3.add(class3LetterGrade);
 
-		JTextField class3Hours = new JTextField("Hours: 0");
+		JLabel class3Hours = new JLabel("Hours: 0");
 		class3Hours.setFont(f2);
 		class3Hours.setBorder(paddingBorder1);
 		class3.add(class3Hours);
 
-		class3Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class3Hours.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+		//		JTextField tField = (JTextField) fEvt.getSource();
+		//		tField.selectAll();
+		//	}
+		//});
 
-		class3Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_11 = true;
-			}
+		//class3Hours.getDocument().addDocumentListener(new DocumentListener() {
+		//	public void changedUpdate(DocumentEvent e) {
+			//	change_11 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_11 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_11 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_11 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_11 = true;
+			//}
+		//});
 		
 		
 		JLabel class3QualityPoints = new JLabel("Quality Points: 0");
@@ -702,31 +702,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass4.setContentAreaFilled(false);
 		class4.add(btnDeleteClass4);
 		
-		JTextField fillerClass4 = new JTextField("Class 4");
+		JLabel fillerClass4 = new JLabel("Class 4");
 		fillerClass4.setFont(f2);
-		fillerClass4.addMouseListener(new PopClickListener2());
+		fillerClass4.addMouseListener(PopClickListener.createDialog(fillerClass4, "Class 4"));
 		class4.add(fillerClass4);
 
-		fillerClass4.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass4.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+				//JTextField tField = (JTextField) fEvt.getSource();
+				//tField.selectAll();
+			//}
+		//});
 
-		fillerClass4.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_4 = true;
-			}
+		//fillerClass4.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_4 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_4 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_4 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_4 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_4 = true;
+			//}
+		//});
 		
 		JLabel class4Grade = new JLabel("Grade: 0");
 		class4Grade.setFont(f2);
@@ -738,31 +738,31 @@ public class EditSemester_Gui extends JPanel {
 		class4LetterGrade.setBorder(paddingBorder1);
 		class4.add(class4LetterGrade);
 
-		JTextField class4Hours = new JTextField("Hours: 0");
+		JLabel class4Hours = new JLabel("Hours: 0");
 		class4Hours.setFont(f2);
 		class4Hours.setBorder(paddingBorder1);
 		class4.add(class4Hours);
 
-		class4Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class4Hours.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		class4Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_12 = true;
-			}
+		//class4Hours.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_12 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_12 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_12 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_12 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_12 = true;
+			//}
+		//});
 		
 		
 		JLabel class4QualityPoints = new JLabel("Quality Points: 0");
@@ -775,31 +775,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass5.setContentAreaFilled(false);
 		class5.add(btnDeleteClass5);
 		
-		JTextField fillerClass5 = new JTextField("Class 5");
+		JLabel fillerClass5 = new JLabel("Class 5");
 		fillerClass5.setFont(f2);
+		fillerClass5.addMouseListener(PopClickListener.createDialog(fillerClass5, "Class 5"));
 		class5.add(fillerClass5);
-		fillerClass5.addMouseListener(new PopClickListener2());
+		
+		//fillerClass5.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		fillerClass5.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass5.getDocument().addDocumentListener(new DocumentListener() {
+		//	public void changedUpdate(DocumentEvent e) {
+			//	change_5 = true;
+			//}
 
-		fillerClass5.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_5 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_5 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_5 = true;
-			}
-
-			public void insertUpdate(DocumentEvent e) {
-				change_5 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_5 = true;
+			//}
+		//});
 		
 		JLabel class5Grade = new JLabel("Grade: 0");
 		class5Grade.setFont(f2);
@@ -811,31 +811,31 @@ public class EditSemester_Gui extends JPanel {
 		class5LetterGrade.setBorder(paddingBorder1);
 		class5.add(class5LetterGrade);
 
-		JTextField class5Hours = new JTextField("Hours: 0");
+		JLabel class5Hours = new JLabel("Hours: 0");
 		class5Hours.setFont(f2);
 		class5Hours.setBorder(paddingBorder1);
 		class5.add(class5Hours);
 
-		class5Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class5Hours.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		class5Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_13 = true;
-			}
+		//class5Hours.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_13 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_13 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_13 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_13 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_13 = true;
+			//}
+		//});
 		
 		
 		JLabel class5QualityPoints = new JLabel("Quality Points: 0");
@@ -848,31 +848,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass6.setContentAreaFilled(false);
 		class6.add(btnDeleteClass6);
 		
-		JTextField fillerClass6 = new JTextField("Class 6");
+		JLabel fillerClass6 = new JLabel("Class 6");
 		fillerClass6.setFont(f2);
-		fillerClass6.addMouseListener(new PopClickListener2());
+		fillerClass6.addMouseListener(PopClickListener.createDialog(fillerClass6, "Class 6"));
 		class6.add(fillerClass6);
 		
-		fillerClass6.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass6.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+			//	tField.selectAll();
+			//}
+		//});
 
-		fillerClass6.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_6 = true;
-			}
+		//fillerClass6.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_6 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_6 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_6 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_6 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_6 = true;
+			//}
+		//});
 		
 		JLabel class6Grade = new JLabel("Grade: 0");
 		class6Grade.setFont(f2);
@@ -884,31 +884,31 @@ public class EditSemester_Gui extends JPanel {
 		class6LetterGrade.setBorder(paddingBorder1);
 		class6.add(class6LetterGrade);
 
-		JTextField class6Hours = new JTextField("Hours: 0");
+		JLabel class6Hours = new JLabel("Hours: 0");
 		class6Hours.setFont(f2);
 		class6Hours.setBorder(paddingBorder1);
 		class6.add(class6Hours);
 
-		class6Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class6Hours.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+		//		JTextField tField = (JTextField) fEvt.getSource();
+		//		tField.selectAll();
+		//	}
+		//});
 
-		class6Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_14 = true;
-			}
+		//class6Hours.getDocument().addDocumentListener(new DocumentListener() {
+		//	public void changedUpdate(DocumentEvent e) {
+		//		change_14 = true;
+		//	}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_14 = true;
-			}
+		//	public void removeUpdate(DocumentEvent e) {
+		//		change_14 = true;
+		//	}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_14 = true;
-			}
-		});
+		//	public void insertUpdate(DocumentEvent e) {
+		//		change_14 = true;
+		//	}
+		//});
 		
 		
 		JLabel class6QualityPoints = new JLabel("Quality Points: 0");
@@ -921,31 +921,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass7.setContentAreaFilled(false);
 		class7.add(btnDeleteClass7);
 		
-		JTextField fillerClass7 = new JTextField("Class 7");
+		JLabel fillerClass7 = new JLabel("Class 7");
 		fillerClass7.setFont(f2);
-		fillerClass7.addMouseListener(new PopClickListener2());
+		fillerClass7.addMouseListener(PopClickListener.createDialog(fillerClass7, "Class 7"));
 		class7.add(fillerClass7);
 
-		fillerClass7.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass7.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+			//	JTextField tField = (JTextField) fEvt.getSource();
+		//		tField.selectAll();
+		//	}
+		//});
 
-		fillerClass7.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_7 = true;
-			}
+		//fillerClass7.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_7 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_7 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_7 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_7 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_7 = true;
+			//}
+		//});
 		
 		JLabel class7Grade = new JLabel("Grade: 0");
 		class7Grade.setFont(f2);
@@ -957,31 +957,31 @@ public class EditSemester_Gui extends JPanel {
 		class7LetterGrade.setBorder(paddingBorder1);
 		class7.add(class7LetterGrade);
 
-		JTextField class7Hours = new JTextField("Hours: 0");
+		JLabel class7Hours = new JLabel("Hours: 0");
 		class7Hours.setFont(f2);
 		class7Hours.setBorder(paddingBorder1);
 		class7.add(class7Hours);
 
-		class7Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class7Hours.addFocusListener(new FocusAdapter() {
+			//public void focusGained(FocusEvent fEvt) {
+				//JTextField tField = (JTextField) fEvt.getSource();
+				//tField.selectAll();
+			//}
+		//});
 
-		class7Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_15 = true;
-			}
+		//class7Hours.getDocument().addDocumentListener(new DocumentListener() {
+			//public void changedUpdate(DocumentEvent e) {
+			//	change_15 = true;
+			//}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_15 = true;
-			}
+			//public void removeUpdate(DocumentEvent e) {
+			//	change_15 = true;
+			//}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_15 = true;
-			}
-		});
+			//public void insertUpdate(DocumentEvent e) {
+			//	change_15 = true;
+			//}
+		//});
 		
 		JLabel class7QualityPoints = new JLabel("Quality Points: 0");
 		class7QualityPoints.setFont(f2);
@@ -993,31 +993,31 @@ public class EditSemester_Gui extends JPanel {
 		btnDeleteClass8.setContentAreaFilled(false);
 		class8.add(btnDeleteClass8);
 		
-		JTextField fillerClass8 = new JTextField("Class 8");
+		JLabel fillerClass8 = new JLabel("Class 8");
 		fillerClass8.setFont(f2);
-		fillerClass8.addMouseListener(new PopClickListener2());
+		fillerClass8.addMouseListener(PopClickListener.createDialog(fillerClass8, "Class 8"));
 		class8.add(fillerClass8);
 
-		fillerClass8.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//fillerClass8.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+		//		JTextField tField = (JTextField) fEvt.getSource();
+		//		tField.selectAll();
+		//	}
+		//});
 
-		fillerClass8.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_8 = true;
-			}
+		//fillerClass8.getDocument().addDocumentListener(new DocumentListener() {
+		//	public void changedUpdate(DocumentEvent e) {
+		//		change_8 = true;
+		//	}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_8 = true;
-			}
+		//	public void removeUpdate(DocumentEvent e) {
+		//		change_8 = true;
+		//	}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_8 = true;
-			}
-		});
+		//	public void insertUpdate(DocumentEvent e) {
+		//		change_8 = true;
+		//	}
+		//});
 		
 		JLabel class8Grade = new JLabel("Grade: 0");
 		class8Grade.setFont(f2);
@@ -1029,31 +1029,31 @@ public class EditSemester_Gui extends JPanel {
 		class8LetterGrade.setBorder(paddingBorder1);
 		class8.add(class8LetterGrade);
 
-		JTextField class8Hours = new JTextField("Hours: 0");
+		JLabel class8Hours = new JLabel("Hours: 0");
 		class8Hours.setFont(f2);
 		class8Hours.setBorder(paddingBorder1);
 		class8.add(class8Hours);
 
-		class8Hours.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent fEvt) {
-				JTextField tField = (JTextField) fEvt.getSource();
-				tField.selectAll();
-			}
-		});
+		//class8Hours.addFocusListener(new FocusAdapter() {
+		//	public void focusGained(FocusEvent fEvt) {
+		//		JTextField tField = (JTextField) fEvt.getSource();
+		//		tField.selectAll();
+		//	}
+		//});
 
-		class8Hours.getDocument().addDocumentListener(new DocumentListener() {
-			public void changedUpdate(DocumentEvent e) {
-				change_16 = true;
-			}
+		//class8Hours.getDocument().addDocumentListener(new DocumentListener() {
+		//	public void changedUpdate(DocumentEvent e) {
+		//		change_16 = true;
+		//	}
 
-			public void removeUpdate(DocumentEvent e) {
-				change_16 = true;
-			}
+		//	public void removeUpdate(DocumentEvent e) {
+		//		change_16 = true;
+		//	}
 
-			public void insertUpdate(DocumentEvent e) {
-				change_16 = true;
-			}
-		});
+		//	public void insertUpdate(DocumentEvent e) {
+		//		change_16 = true;
+		//	}
+		//});
 		
 		JLabel class8QualityPoints = new JLabel("Quality Points: 0");
 		class8QualityPoints.setFont(f2);
@@ -1122,10 +1122,12 @@ public class EditSemester_Gui extends JPanel {
 		return panel;
 	}
 
+	private static JFrame frame;
+	
 	static void createAndShowGUI(String s) {
 		// Create and set up the window.
 		s2 = s;
-		JFrame frame = new JFrame("GPA Calculator - Edit " + s);
+		frame = new JFrame("GPA Calculator - Edit " + s);
 
 		// Initialize MenuBar
 		JMenuBar menuBar;
@@ -1345,56 +1347,88 @@ public class EditSemester_Gui extends JPanel {
 		menuItemSemester1SettingView = new JMenuItem("Semester 1 Settings");
 		menuItemSemester1SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings1 = makeTextPanel1("Semester 1 Settings");
+				tabbedPane1.addTab("Semester 1 Settings", pnlSettings1);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester2SettingView = new JMenuItem("Semester 2 Settings");
 		menuItemSemester2SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings2 = makeTextPanel1("Semester 2 Settings");
+				tabbedPane1.addTab("Semester 2 Settings", pnlSettings2);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester3SettingView = new JMenuItem("Semester 3 Settings");
 		menuItemSemester3SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings3 = makeTextPanel1("Semester 3 Settings");
+				tabbedPane1.addTab("Semester 3 Settings", pnlSettings3);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester4SettingView = new JMenuItem("Semester 4 Settings");
 		menuItemSemester4SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings4 = makeTextPanel1("Semester 4 Settings");
+				tabbedPane1.addTab("Semester 4 Settings", pnlSettings4);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester5SettingView = new JMenuItem("Semester 5 Settings");
 		menuItemSemester5SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings5 = makeTextPanel1("Semester 5 Settings");
+				tabbedPane1.addTab("Semester 5 Settings", pnlSettings5);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester6SettingView = new JMenuItem("Semester 6 Settings");
 		menuItemSemester6SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings6 = makeTextPanel1("Semester 6 Settings");
+				tabbedPane1.addTab("Semester 6 Settings", pnlSettings6);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester7SettingView = new JMenuItem("Semester 7 Settings");
 		menuItemSemester7SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings7 = makeTextPanel1("Semester 7 Settings");
+				tabbedPane1.addTab("Semester 7 Settings", pnlSettings7);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
 		menuItemSemester8SettingView = new JMenuItem("Semester 8 Settings");
 		menuItemSemester8SettingView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				
+				Font f = new Font("serif", Font.PLAIN, 24);
+				JComponent pnlSettings8 = makeTextPanel1("Semester 8 Settings");
+				tabbedPane1.addTab("Semester 8 Settings", pnlSettings8);
+				tabbedPane1.setFont(f);
+				initTabComponent(tabbedPane1.getTabCount() - 1);
 			}
 		});
 		
@@ -1465,6 +1499,14 @@ public class EditSemester_Gui extends JPanel {
 	    g.dispose();  
 	    return dimg;  
 	}  
+	
+	public static void makeVisible(){
+		frame.setVisible(true);
+	}
+	
+	public static void makeInvisible(){
+		frame.setVisible(false);
+	}
 	
 	public final static void addSemester(String s) {
 

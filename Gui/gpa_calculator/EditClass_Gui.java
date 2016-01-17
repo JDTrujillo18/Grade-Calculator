@@ -1,22 +1,5 @@
 package gpa_calculator;
 
-import javax.swing.JTabbedPane;
-import javax.swing.KeyStroke;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import javax.swing.JComponent;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -24,69 +7,51 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-//Start commenting next week
-public class GPA_Gui extends JPanel {
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
+
+public class EditClass_Gui extends JPanel {
 	private static JTabbedPane tabbedPane;
-	public GPA_Gui() {
+	public EditClass_Gui(String s) {
 		super(new GridLayout(1, 1));
 		Font f = new Font("serif", Font.PLAIN, 24);
 		
 		tabbedPane = new JTabbedPane();
-
-		JComponent pnlSemester1 = makeTextPanel("Semester #1");
-		tabbedPane.addTab("Semester #1", pnlSemester1);
+		
+		JComponent pnlSemester1 = makeTextPanel(s);
+		tabbedPane.addTab(s, pnlSemester1);
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 		tabbedPane.setFont(f);
-
-		JComponent pnlSemester2 = makeTextPanel("Semester #2");
-		tabbedPane.addTab("Semester #2", pnlSemester2);
-		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
-
-		JComponent pnlSemester3 = makeTextPanel("Semester #3");
-		tabbedPane.addTab("Semester #3", pnlSemester3);
-		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
-
-		JComponent pnlSemester4 = makeTextPanel("Semester #4");
-		tabbedPane.addTab("Semester #4", pnlSemester4);
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
-
-		JComponent pnlSemester5 = makeTextPanel("Semester #5");
-		tabbedPane.addTab("Semester #5", pnlSemester5);
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_5);
-
-		JComponent pnlSemester6 = makeTextPanel("Semester #6");
-		tabbedPane.addTab("Semester #6", pnlSemester6);
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_6);
-
-		JComponent pnlSemester7 = makeTextPanel("Semester #7");
-		tabbedPane.addTab("Semester #7", pnlSemester7);
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_7);
-
-		JComponent pnlSemester8 = makeTextPanel("Semester #8");
-		tabbedPane.addTab("Semester #8", pnlSemester8);
-		tabbedPane.setMnemonicAt(3, KeyEvent.VK_8);
-
-		for (int i = 0; i < 8; i++) {
-			initTabComponent(i);
-		}
-
-		// Add the tabbed pane to this panel.
+		
 		add(tabbedPane);
 		// The following line enables to use scrolling tabs.
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 	}
-
+	
 	private static void initTabComponent(int i) {
 		tabbedPane.setTabComponentAt(i, new ButtonTabComponent(tabbedPane));
 	}
-
+	
 	protected static JComponent makeTextPanel(String text) {
 		Font f1 = new Font("serif", Font.PLAIN, 36);
 		Font f2 = new Font("serif", Font.PLAIN, 24);
@@ -99,8 +64,7 @@ public class GPA_Gui extends JPanel {
 
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-		JPanel semester = new JPanel();
+JPanel semester = new JPanel();
 		
 		JPanel empty = new JPanel();
 
@@ -171,7 +135,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass1 = new JLabel("Class 1");
 		fillerClass1.setFont(f2);
-		fillerClass1.addMouseListener(PopClickListener.createDialog(fillerClass1, "Class 1"));
+		fillerClass1.addMouseListener(new PopClickListener2());
 		class1.add(fillerClass1);
 
 		JLabel class1Grade = new JLabel("Grade: 0");
@@ -202,7 +166,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass2 = new JLabel("Class 2");
 		fillerClass2.setFont(f2);
-		fillerClass2.addMouseListener(PopClickListener.createDialog(fillerClass1, "Class 2"));
+		fillerClass2.addMouseListener(new PopClickListener2());
 		class2.add(fillerClass2);
 
 		JLabel class2Grade = new JLabel("Grade: 0");
@@ -233,7 +197,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass3 = new JLabel("Class 3");
 		fillerClass3.setFont(f2);
-		fillerClass3.addMouseListener(PopClickListener.createDialog(fillerClass3, "Class 3"));
+		fillerClass3.addMouseListener(new PopClickListener2());
 		class3.add(fillerClass3);
 
 		JLabel class3Grade = new JLabel("Grade: 0");
@@ -263,7 +227,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass4 = new JLabel("Class 4");
 		fillerClass4.setFont(f2);
-		fillerClass4.addMouseListener(PopClickListener.createDialog(fillerClass4, "Class 4"));
+		fillerClass4.addMouseListener(new PopClickListener2());
 		class4.add(fillerClass4);
 
 		JLabel class4Grade = new JLabel("Grade: 0");
@@ -293,9 +257,9 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass5 = new JLabel("Class 5");
 		fillerClass5.setFont(f2);
-		fillerClass5.addMouseListener(PopClickListener.createDialog(fillerClass5, "Class 5"));
 		class5.add(fillerClass5);
-		
+		fillerClass5.addMouseListener(new PopClickListener2());
+
 		JLabel class5Grade = new JLabel("Grade: 0");
 		class5Grade.setFont(f2);
 		class5Grade.setBorder(paddingBorder2);
@@ -323,7 +287,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass6 = new JLabel("Class 6");
 		fillerClass6.setFont(f2);
-		fillerClass6.addMouseListener(PopClickListener.createDialog(fillerClass6, "Class 6"));
+		fillerClass6.addMouseListener(new PopClickListener2());
 		class6.add(fillerClass6);
 		
 		JLabel class6Grade = new JLabel("Grade: 0");
@@ -353,7 +317,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass7 = new JLabel("Class 7");
 		fillerClass7.setFont(f2);
-		fillerClass7.addMouseListener(PopClickListener.createDialog(fillerClass7, "Class 7"));
+		fillerClass7.addMouseListener(new PopClickListener2());
 		class7.add(fillerClass7);
 
 		JLabel class7Grade = new JLabel("Grade: 0");
@@ -383,7 +347,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass8 = new JLabel("Class 8");
 		fillerClass8.setFont(f2);
-		fillerClass8.addMouseListener(PopClickListener.createDialog(fillerClass8, "Class 8"));
+		fillerClass8.addMouseListener(new PopClickListener2());
 		class8.add(fillerClass8);
 
 		JLabel class8Grade = new JLabel("Grade: 0");
@@ -441,17 +405,13 @@ public class GPA_Gui extends JPanel {
 
 		return panel;
 	}
-
-	/**
-	 * Create the GUI and show it. For thread safety, this method should be
-	 * invoked from the event dispatch thread.
-	 */
+	
 	private static JFrame frame;
-
-	private static void createAndShowGUI() {
+	static String s2;
+	static void createAndShowGUI(String s) {
 		// Create and set up the window.
-		frame = new JFrame("GPA Calculator");
-
+		frame = new JFrame("GPA Calculator - Edit Class");
+		s2 = s;
 		// Initialize MenuBar
 		JMenuBar menuBar;
 
@@ -489,200 +449,22 @@ public class GPA_Gui extends JPanel {
 		Dimension d = new Dimension(1500, 800);
 		c.setPreferredSize(d);
 		// Add content to the window.
-		frame.add(new GPA_Gui(), BorderLayout.NORTH);
+		frame.add(new EditClass_Gui(s), BorderLayout.NORTH);
 
 		Font fmenu = new Font("sans-serif", Font.PLAIN, 12);
 		UIManager.put("Menu.font", fmenu);
 		UIManager.put("MenuItem.font", fmenu);
 		menuBar = new JMenuBar();
-		// Build the File menu.
+		
 		menuFile = new JMenu("File");
-		menuFile.setMnemonic(KeyEvent.VK_A);
-		
 		menuNew = new JMenu("New");
-		// Build the Edit menu.
 		menuEdit = new JMenu("Edit");
-		menuEditSemester = new JMenu("Edit Semester");
-		
 		menuView = new JMenu("View");
-		
-		// a group of JMenuItems
-		menuItemQuit = new JMenuItem("Quit", KeyEvent.VK_T);
-		menuItemQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-		menuItemQuit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				System.exit(0);
-			}
-		});
-
-		menuItemNewStudent = new JMenuItem("Student", KeyEvent.VK_2);
-		menuItemNewStudent.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
-		menuItemNewStudent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-
-			}
-		});
-
-		menuItemNewSemester = new JMenuItem("Semester", KeyEvent.VK_3);
-		menuItemNewSemester.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, ActionEvent.CTRL_MASK));
-		menuItemNewSemester.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				addSemester();
-				JMenuItem menuItemNewSemesterX = new JMenuItem("Semester " + stringSemesterNumber);
-				menuItemNewSemesterX.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent actionEvent) {
-						EditSemester_Gui.createAndShowGUI("Semester " + stringSemesterNumber);
-						frame.setVisible(false);
-					}
-				});
-				menuEditSemester.add(menuItemNewSemesterX);
-			}
-		});
-		
-		menuItemSettings = new JMenuItem("Settings");
-		menuItemSettings.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
-		
-		menuItemSave = new JMenuItem("Save");
-		menuItemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-		menuItemSave.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-		
-		menuItemSaveAs = new JMenuItem("Save As");
-		menuItemSaveAs.setAccelerator(KeyStroke.getKeyStroke("control shift S"));
-		menuItemSaveAs.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-		
-		menuItemSaveAll = new JMenuItem("Save All");
-		menuItemSaveAll.setAccelerator(KeyStroke.getKeyStroke("alt shift S"));
-		menuItemSaveAll.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-
-		menuItemEditSemester1 = new JMenuItem("Semester 1");
-		menuItemEditSemester1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 1");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester2 = new JMenuItem("Semester 2");
-		menuItemEditSemester2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 2");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester3 = new JMenuItem("Semester 3");
-		menuItemEditSemester3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 3");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester4 = new JMenuItem("Semester 4");
-		menuItemEditSemester4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 4");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester5 = new JMenuItem("Semester 5");
-		menuItemEditSemester5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 5");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester6 = new JMenuItem("Semester 6");
-		menuItemEditSemester6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 6");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester7 = new JMenuItem("Semester 7");
-		menuItemEditSemester7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester7");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester8 = new JMenuItem("Semester 8");
-		menuItemEditSemester8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 8");
-				frame.setVisible(false);
-			}
-		});
-
-		
-		menuItemStudentView = new JMenuItem("Student View");
-		menuItemStudentView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, ActionEvent.CTRL_MASK));
-		menuItemStudentView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
-		
-		menuItemSemesterView = new JMenuItem("Semester View");
-		menuItemSemesterView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
-		menuItemSemesterView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
-		
-		menuItemClassView = new JMenuItem("Class View");
-		menuItemClassView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
-		menuItemClassView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
 		
 		menuBar.add(menuFile);
 		menuFile.add(menuNew);
 		menuBar.add(menuEdit);
 		menuBar.add(menuView);
-		
-		// Add Exit Item to File Menu.
-		menuNew.add(menuItemNewStudent);
-		menuNew.add(menuItemNewSemester);
-		menuFile.addSeparator();
-		menuFile.add(menuItemSave);
-		menuFile.add(menuItemSaveAs);
-		menuFile.add(menuItemSaveAll);
-		menuFile.addSeparator();
-		menuFile.add(menuItemSettings);
-		menuFile.addSeparator();
-		menuFile.add(menuItemQuit);
-		
-		menuEdit.add(menuEditSemester);
-		
-		menuEditSemester.add(menuItemEditSemester1);
-		menuEditSemester.add(menuItemEditSemester2);
-		menuEditSemester.add(menuItemEditSemester3);
-		menuEditSemester.add(menuItemEditSemester4);
-		menuEditSemester.add(menuItemEditSemester5);
-		menuEditSemester.add(menuItemEditSemester6);
-		menuEditSemester.add(menuItemEditSemester7);
-		menuEditSemester.add(menuItemEditSemester8);
-		
-		menuView.add(menuItemStudentView);
-		menuView.add(menuItemSemesterView);
-		menuView.add(menuItemClassView);
 		
 		frame.setJMenuBar(menuBar);
 		// Add Panel to Frame
@@ -690,7 +472,7 @@ public class GPA_Gui extends JPanel {
 		frame.pack();
 		frame.setVisible(true);
 	}
-
+	
 	public static BufferedImage resize(BufferedImage img, int newW, int newH) {  
 	    int w = img.getWidth();  
 	    int h = img.getHeight();  
@@ -702,14 +484,6 @@ public class GPA_Gui extends JPanel {
 	    g.dispose();  
 	    return dimg;  
 	}  
-	
-	public static void makeVisible(){
-		frame.setVisible(true);
-	}
-	
-	public static void makeInvisible(){
-		frame.setVisible(false);
-	}
 	
 	static int semesterNumber = 9;
 	static String stringSemesterNumber = Integer.toString(semesterNumber);
@@ -725,7 +499,15 @@ public class GPA_Gui extends JPanel {
 		semesterNumber++;
 		// frame.add(new GPA_Gui(), BorderLayout.NORTH);
 	}
-
+	
+	public static void makeVisible(){
+		frame.setVisible(true);
+	}
+	
+	public static void makeInvisible(){
+		frame.setVisible(false);
+	}
+	
 	public static void main(String[] args) {
 		// Schedule a job for the event dispatch thread:
 		// creating and showing this application's GUI.
@@ -733,7 +515,7 @@ public class GPA_Gui extends JPanel {
 			public void run() {
 				// Turn off metal's use of bold fonts
 				UIManager.put("swing.boldMetal", Boolean.FALSE);
-				createAndShowGUI();
+				createAndShowGUI(s2);
 			}
 		});
 	}

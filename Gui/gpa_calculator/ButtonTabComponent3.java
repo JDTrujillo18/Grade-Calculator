@@ -2,14 +2,12 @@ package gpa_calculator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
 public class ButtonTabComponent3 extends JPanel {
@@ -85,7 +83,9 @@ public class ButtonTabComponent3 extends JPanel {
 	        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 	        JLabel label = new JLabel("These settings will be removed from view, but not deleted.");
 	        JLabel confirm = new JLabel("         Confirm removal?");
+
 	        JLabel empty = new JLabel("    ");
+
 	        JCheckBox checkBox = new JCheckBox("Don't show this message in the future");
 	        
 	        BufferedImage image = null;
