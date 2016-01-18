@@ -40,37 +40,37 @@ public class GPA_Gui extends JPanel {
 		
 		tabbedPane = new JTabbedPane();
 
-		JComponent pnlSemester1 = makeTextPanel("Semester #1");
-		tabbedPane.addTab("Semester #1", pnlSemester1);
+		JComponent pnlSemester1 = makeTextPanel("Semester 1");
+		tabbedPane.addTab("Semester 1", pnlSemester1);
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 		tabbedPane.setFont(f);
 
-		JComponent pnlSemester2 = makeTextPanel("Semester #2");
-		tabbedPane.addTab("Semester #2", pnlSemester2);
+		JComponent pnlSemester2 = makeTextPanel("Semester 2");
+		tabbedPane.addTab("Semester 2", pnlSemester2);
 		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
-		JComponent pnlSemester3 = makeTextPanel("Semester #3");
-		tabbedPane.addTab("Semester #3", pnlSemester3);
+		JComponent pnlSemester3 = makeTextPanel("Semester 3");
+		tabbedPane.addTab("Semester 3", pnlSemester3);
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
-		JComponent pnlSemester4 = makeTextPanel("Semester #4");
-		tabbedPane.addTab("Semester #4", pnlSemester4);
+		JComponent pnlSemester4 = makeTextPanel("Semester 4");
+		tabbedPane.addTab("Semester 4", pnlSemester4);
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
 
-		JComponent pnlSemester5 = makeTextPanel("Semester #5");
-		tabbedPane.addTab("Semester #5", pnlSemester5);
+		JComponent pnlSemester5 = makeTextPanel("Semester 5");
+		tabbedPane.addTab("Semester 5", pnlSemester5);
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_5);
 
-		JComponent pnlSemester6 = makeTextPanel("Semester #6");
-		tabbedPane.addTab("Semester #6", pnlSemester6);
+		JComponent pnlSemester6 = makeTextPanel("Semester 6");
+		tabbedPane.addTab("Semester 6", pnlSemester6);
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_6);
 
-		JComponent pnlSemester7 = makeTextPanel("Semester #7");
-		tabbedPane.addTab("Semester #7", pnlSemester7);
+		JComponent pnlSemester7 = makeTextPanel("Semester 7");
+		tabbedPane.addTab("Semester 7", pnlSemester7);
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_7);
 
-		JComponent pnlSemester8 = makeTextPanel("Semester #8");
-		tabbedPane.addTab("Semester #8", pnlSemester8);
+		JComponent pnlSemester8 = makeTextPanel("Semester 8");
+		tabbedPane.addTab("Semester 8", pnlSemester8);
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_8);
 
 		for (int i = 0; i < 8; i++) {
@@ -171,7 +171,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass1 = new JLabel("Class 1");
 		fillerClass1.setFont(f2);
-		fillerClass1.addMouseListener(PopClickListener.createDialog(fillerClass1, "Class 1"));
+		fillerClass1.addMouseListener(PopClickListener.createDialog(fillerClass1, text + ": Class 1"));
 		class1.add(fillerClass1);
 
 		JLabel class1Grade = new JLabel("Grade: 0");
@@ -202,7 +202,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass2 = new JLabel("Class 2");
 		fillerClass2.setFont(f2);
-		fillerClass2.addMouseListener(PopClickListener.createDialog(fillerClass1, "Class 2"));
+		fillerClass2.addMouseListener(PopClickListener.createDialog(fillerClass1,  text + ": Class 2"));
 		class2.add(fillerClass2);
 
 		JLabel class2Grade = new JLabel("Grade: 0");
@@ -233,7 +233,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass3 = new JLabel("Class 3");
 		fillerClass3.setFont(f2);
-		fillerClass3.addMouseListener(PopClickListener.createDialog(fillerClass3, "Class 3"));
+		fillerClass3.addMouseListener(PopClickListener.createDialog(fillerClass3,  text + ": Class 3"));
 		class3.add(fillerClass3);
 
 		JLabel class3Grade = new JLabel("Grade: 0");
@@ -263,7 +263,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass4 = new JLabel("Class 4");
 		fillerClass4.setFont(f2);
-		fillerClass4.addMouseListener(PopClickListener.createDialog(fillerClass4, "Class 4"));
+		fillerClass4.addMouseListener(PopClickListener.createDialog(fillerClass4,  text + ": Class 4"));
 		class4.add(fillerClass4);
 
 		JLabel class4Grade = new JLabel("Grade: 0");
@@ -293,7 +293,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass5 = new JLabel("Class 5");
 		fillerClass5.setFont(f2);
-		fillerClass5.addMouseListener(PopClickListener.createDialog(fillerClass5, "Class 5"));
+		fillerClass5.addMouseListener(PopClickListener.createDialog(fillerClass5,  text + ": Class 5"));
 		class5.add(fillerClass5);
 		
 		JLabel class5Grade = new JLabel("Grade: 0");
@@ -323,7 +323,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass6 = new JLabel("Class 6");
 		fillerClass6.setFont(f2);
-		fillerClass6.addMouseListener(PopClickListener.createDialog(fillerClass6, "Class 6"));
+		fillerClass6.addMouseListener(PopClickListener.createDialog(fillerClass6,  text + ": Class 6"));
 		class6.add(fillerClass6);
 		
 		JLabel class6Grade = new JLabel("Grade: 0");
@@ -353,7 +353,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass7 = new JLabel("Class 7");
 		fillerClass7.setFont(f2);
-		fillerClass7.addMouseListener(PopClickListener.createDialog(fillerClass7, "Class 7"));
+		fillerClass7.addMouseListener(PopClickListener.createDialog(fillerClass7,  text + ": Class 7"));
 		class7.add(fillerClass7);
 
 		JLabel class7Grade = new JLabel("Grade: 0");
@@ -383,7 +383,7 @@ public class GPA_Gui extends JPanel {
 		
 		JLabel fillerClass8 = new JLabel("Class 8");
 		fillerClass8.setFont(f2);
-		fillerClass8.addMouseListener(PopClickListener.createDialog(fillerClass8, "Class 8"));
+		fillerClass8.addMouseListener(PopClickListener.createDialog(fillerClass8,  text + ": Class 8"));
 		class8.add(fillerClass8);
 
 		JLabel class8Grade = new JLabel("Grade: 0");
@@ -714,7 +714,7 @@ public class GPA_Gui extends JPanel {
 	static int semesterNumber = 9;
 	static String stringSemesterNumber = Integer.toString(semesterNumber);
 	public final static void addSemester() {
-		String stringSemesterNumber = "Semester #" + Integer.toString(semesterNumber);
+		String stringSemesterNumber = "Semester " + Integer.toString(semesterNumber);
 		// tabbedPane.add(stringSemesterNumber, new ScrollPane());
 
 		Font f = new Font("serif", Font.PLAIN, 24);

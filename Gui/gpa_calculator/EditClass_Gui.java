@@ -25,81 +25,164 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
 
 public class EditClass_Gui extends JPanel {
 	private static JTabbedPane tabbedPane;
+	private static JComponent pnlAll;
+	private static JTabbedPane tabbedPane1;
+	private static JTabbedPane tabbedPane3;
+	static JComponent pnlInnerSemester;
+	static JComponent pnlInnerSettings;
+	static JComponent pnlSemester;
+	static JComponent pnlSettings;
+	static JComponent pnlTreeContainer;
+	static JComponent pnlTree;
 	public EditClass_Gui(String s) {
-		super(new GridLayout(1, 1));
+		super(new GridLayout(2, 1));
 		Font f = new Font("serif", Font.PLAIN, 24);
-		
+		Dimension d1 = new Dimension(400, 800);
+		Dimension d2 = new Dimension(900, 800);
+		Dimension d3 = new Dimension(200, 800);
+		Dimension d4 = new Dimension(1500, 800);
+		tabbedPane1 = new JTabbedPane();
+		tabbedPane1.setPreferredSize(d1);
 		tabbedPane = new JTabbedPane();
+		tabbedPane.setPreferredSize(d2);
+		tabbedPane3 = new JTabbedPane();
+		tabbedPane3.setPreferredSize(d3);
+		// The following line enables to use scrolling tabs.
+		tabbedPane1.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		tabbedPane3.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		pnlAll = new JPanel();
+		pnlAll.setPreferredSize(d4);
+		pnlAll.setLayout(new BoxLayout(pnlAll, BoxLayout.X_AXIS));
 		
-		JComponent pnlSemester1 = makeTextPanel(s);
-		tabbedPane.addTab(s, pnlSemester1);
-		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
+		pnlTreeContainer = new JPanel();
+		pnlTreeContainer.setPreferredSize(d3);
+		pnlTreeContainer.add(tabbedPane3);
+		
+		pnlTree = makeTextPanel3("Student Tree View");
+		tabbedPane3.addTab("Student Tree View", pnlTree);
+		tabbedPane3.setMnemonicAt(0, KeyEvent.VK_3);
+		tabbedPane3.setFont(f);
+		
+		pnlSettings = new JPanel();
+		pnlSettings.setPreferredSize(d1);
+		pnlSettings.add(tabbedPane1);
+		
+		pnlInnerSettings = makeTextPanel1(s + " Settings");
+		tabbedPane1.addTab(s + " Settings", pnlInnerSettings);
+		tabbedPane1.setMnemonicAt(0, KeyEvent.VK_1);
+		tabbedPane1.setFont(f);
+		
+
+		pnlSemester = new JPanel();
+		pnlSemester.setPreferredSize(d2);
+		pnlSemester.add(tabbedPane);
+		
+		pnlInnerSemester = makeTextPanel2("Semester");
+		tabbedPane.addTab(s, pnlInnerSemester);
+		tabbedPane.setMnemonicAt(0, KeyEvent.VK_2);
 		tabbedPane.setFont(f);
 		
-		add(tabbedPane);
-		// The following line enables to use scrolling tabs.
-		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		// Add the tabbed pane to this panel.
+		initTabComponent(0);
+		initTabComponent2(0);
+		initTabComponent3(0);
+		
+		pnlAll.add(pnlTreeContainer);
+		pnlAll.add(pnlSemester);
+		pnlAll.add(pnlSettings);
+		
+		add(pnlAll);
 	}
 	
 	private static void initTabComponent(int i) {
-		tabbedPane.setTabComponentAt(i, new ButtonTabComponent(tabbedPane));
+		tabbedPane.setTabComponentAt(i, new ButtonTabComponent5(tabbedPane));
 	}
 	
-	protected static JComponent makeTextPanel(String text) {
-		Font f1 = new Font("serif", Font.PLAIN, 36);
-		Font f2 = new Font("serif", Font.PLAIN, 24);
-		Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
-		Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
-		Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
+	private static void initTabComponent2(int i) {
+		tabbedPane.setTabComponentAt(i, new ButtonTabComponent2(tabbedPane));
+	}
+	
+	private static void initTabComponent3(int i) {
+		tabbedPane3.setTabComponentAt(i, new ButtonTabComponent4(tabbedPane3));
+	}
+	
+	protected static JComponent makeTextPanel1(String text) {
+		//Font f1 = new Font("serif", Font.PLAIN, 36);
+		//Font f2 = new Font("serif", Font.PLAIN, 24);
+		//Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
+		//Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
+		//Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
 
-		Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
-		Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
+		//Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
+		//Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
 
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-JPanel semester = new JPanel();
+		//Create the nodes.
+        DefaultMutableTreeNode top = new DefaultMutableTreeNode(text);
+        createNodes1(top);
+ 
+        //Create a tree that allows one selection at a time.
+        JTree tree = new JTree(top);
+        tree.getSelectionModel().setSelectionMode
+                (TreeSelectionModel.SINGLE_TREE_SELECTION);
+ 
+        //Create the scroll pane and add the tree to it. 
+        JScrollPane treeView = new JScrollPane(tree);
+		panel.add(treeView);
+		return panel;
+	}
+
+	protected static JComponent makeTextPanel2(String text) {
+		Font f1 = new Font("serif", Font.PLAIN, 36);
+		Font f2 = new Font("serif", Font.PLAIN, 24);
+		Dimension d1 = new Dimension(900, 800);
+		Dimension d2 = new Dimension(900, 100);
+		Dimension d3 = new Dimension(900, 500);
+		Dimension d4 = new Dimension(900, 100);
+		Dimension d5 = new Dimension(900, 100);
 		
-		JPanel empty = new JPanel();
-
-		JPanel class1 = new JPanel();
-		class1.setLayout(new BoxLayout(class1, BoxLayout.X_AXIS));
-
-		JPanel class2 = new JPanel();
-		class2.setLayout(new BoxLayout(class2, BoxLayout.X_AXIS));
-
-		JPanel class3 = new JPanel();
-		class3.setLayout(new BoxLayout(class3, BoxLayout.X_AXIS));
-
-		JPanel class4 = new JPanel();
-		class4.setLayout(new BoxLayout(class4, BoxLayout.X_AXIS));
-
-		JPanel class5 = new JPanel();
-		class5.setLayout(new BoxLayout(class5, BoxLayout.X_AXIS));
-
-		JPanel class6 = new JPanel();
-		class6.setLayout(new BoxLayout(class6, BoxLayout.X_AXIS));
-
-		JPanel class7 = new JPanel();
-		class7.setLayout(new BoxLayout(class7, BoxLayout.X_AXIS));
-
-		JPanel class8 = new JPanel();
-		class8.setLayout(new BoxLayout(class8, BoxLayout.X_AXIS));
-
-		JPanel addClass = new JPanel();
-		addClass.setLayout(new BoxLayout(addClass, BoxLayout.X_AXIS));
-
-		JPanel gpaSemester = new JPanel();
-		gpaSemester.setLayout(new BoxLayout(gpaSemester, BoxLayout.X_AXIS));
+		Border paddingBorder1 = BorderFactory.createEmptyBorder(8, 0, 20, 0);
+		Border paddingBorder2 = BorderFactory.createEmptyBorder(0, 0, 20, 0);
+		Border paddingBorder3 = BorderFactory.createEmptyBorder(0, 0, 20, 670);
+		Border paddingBorder4 = BorderFactory.createEmptyBorder(0, 700, 0, 0);
 		
-		JPanel gpaTotal = new JPanel();
-		gpaTotal.setLayout(new BoxLayout(gpaTotal, BoxLayout.X_AXIS));
+		JPanel container = new JPanel(false);
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		container.setPreferredSize(d1);
+		
+		JPanel pnlClass = new JPanel();
+		pnlClass.setPreferredSize(d2);
+		
+		JPanel panel = new JPanel(false);
+		panel.setLayout(new GridLayout(7, 4));
+		panel.setPreferredSize(d3);
+
+		//JPanel pnlDelete = new JPanel();
+		//pnlDelete.setLayout(new BoxLayout(pnlDelete, BoxLayout.Y_AXIS));
+		
+		//JPanel pnlGradeTypes = new JPanel();
+		//pnlGradeTypes.setLayout(new BoxLayout(pnlGradeTypes, BoxLayout.Y_AXIS));
+		
+		JPanel pnlAdd = new JPanel();
+		pnlAdd.setLayout(new BoxLayout(pnlAdd, BoxLayout.X_AXIS));
+		pnlAdd.setPreferredSize(d4);
+		
+		JPanel pnlGPA = new JPanel();
+		pnlGPA.setLayout(new BoxLayout(pnlGPA, BoxLayout.X_AXIS));
+		pnlGPA.setPreferredSize(d5);
 		
 		BufferedImage buttonIcon = null;
 		try {
@@ -128,286 +211,441 @@ JPanel semester = new JPanel();
 		
 		BufferedImage buttonIcon4 = resize(buttonIcon3, 20, 20);
 
-		JButton btnDeleteClass1 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass1.setBorder(paddingBorder5);
-		btnDeleteClass1.setContentAreaFilled(false);
-		class1.add(btnDeleteClass1);
+		JLabel fillerClass = new JLabel(text);
+		fillerClass.setFont(f1);
+		//pnlClass.add(fillerClass);
 		
-		JLabel fillerClass1 = new JLabel("Class 1");
-		fillerClass1.setFont(f2);
-		fillerClass1.addMouseListener(new PopClickListener2());
-		class1.add(fillerClass1);
-
-		JLabel class1Grade = new JLabel("Grade: 0");
-		class1Grade.setFont(f2);
-		class1Grade.setBorder(paddingBorder2);
-		class1.add(class1Grade);
-
-		JLabel class1LetterGrade = new JLabel("Letter Grade: F");
-		class1LetterGrade.setFont(f2);
-		class1LetterGrade.setBorder(paddingBorder1);
-		class1.add(class1LetterGrade);
-
-		JLabel class1Hours = new JLabel("Hours: 0");
-		class1Hours.setFont(f2);
-		class1Hours.setBorder(paddingBorder1);
-		class1.add(class1Hours);
-
-		JLabel class1QualityPoints = new JLabel("Quality Points: 0");
-		class1QualityPoints.setFont(f2);
-		class1QualityPoints.setBorder(paddingBorder1);
-		class1.add(class1QualityPoints);
-
+		JButton btnDeleteParticipation = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteParticipation.setBorder(paddingBorder1);
+		btnDeleteParticipation.setContentAreaFilled(false);
+		//pnlDelete.add(btnDeleteParticipation);
 		
-		JButton btnDeleteClass2 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass2.setBorder(paddingBorder5);
-		btnDeleteClass2.setContentAreaFilled(false);
-		class2.add(btnDeleteClass2);
+		JButton btnDeleteHomework = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteHomework.setBorder(paddingBorder1);
+		btnDeleteHomework.setContentAreaFilled(false);
+		//pnlDelete.add(btnDeleteHomework);
 		
-		JLabel fillerClass2 = new JLabel("Class 2");
-		fillerClass2.setFont(f2);
-		fillerClass2.addMouseListener(new PopClickListener2());
-		class2.add(fillerClass2);
-
-		JLabel class2Grade = new JLabel("Grade: 0");
-		class2Grade.setFont(f2);
-		class2Grade.setBorder(paddingBorder2);
-		class2.add(class2Grade);
-
-		JLabel class2LetterGrade = new JLabel("Letter Grade: F");
-		class2LetterGrade.setFont(f2);
-		class2LetterGrade.setBorder(paddingBorder1);
-		class2.add(class2LetterGrade);
-
-		JLabel class2Hours = new JLabel("Hours: 0");
-		class2Hours.setFont(f2);
-		class2Hours.setBorder(paddingBorder1);
-		class2.add(class2Hours);
-
-		JLabel class2QualityPoints = new JLabel("Quality Points: 0");
-		class2QualityPoints.setFont(f2);
-		class2QualityPoints.setBorder(paddingBorder1);
-		class2.add(class2QualityPoints);
-
+		JButton btnDeleteLabs = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteLabs.setBorder(paddingBorder1);
+		btnDeleteLabs.setContentAreaFilled(false);
+		//pnlDelete.add(btnDeleteLabs);
 		
-		JButton btnDeleteClass3 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass3.setBorder(paddingBorder5);
-		btnDeleteClass3.setContentAreaFilled(false);
-		class3.add(btnDeleteClass3);
+		JButton btnDeletePapers = new JButton(new ImageIcon(buttonIcon2));
+		btnDeletePapers.setBorder(paddingBorder1);
+		btnDeletePapers.setContentAreaFilled(false);
 		
-		JLabel fillerClass3 = new JLabel("Class 3");
-		fillerClass3.setFont(f2);
-		fillerClass3.addMouseListener(new PopClickListener2());
-		class3.add(fillerClass3);
-
-		JLabel class3Grade = new JLabel("Grade: 0");
-		class3Grade.setFont(f2);
-		class3Grade.setBorder(paddingBorder2);
-		class3.add(class3Grade);
-
-		JLabel class3LetterGrade = new JLabel("Letter Grade: F");
-		class3LetterGrade.setFont(f2);
-		class3LetterGrade.setBorder(paddingBorder1);
-		class3.add(class3LetterGrade);
-
-		JLabel class3Hours = new JLabel("Hours: 0");
-		class3Hours.setFont(f2);
-		class3Hours.setBorder(paddingBorder1);
-		class3.add(class3Hours);
-
-		JLabel class3QualityPoints = new JLabel("Quality Points: 0");
-		class3QualityPoints.setFont(f2);
-		class3QualityPoints.setBorder(paddingBorder1);
-		class3.add(class3QualityPoints);
-
-		JButton btnDeleteClass4 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass4.setBorder(paddingBorder5);
-		btnDeleteClass4.setContentAreaFilled(false);
-		class4.add(btnDeleteClass4);
+		JButton btnDeleteQuizzes = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteQuizzes.setBorder(paddingBorder1);
+		btnDeleteQuizzes.setContentAreaFilled(false);
 		
-		JLabel fillerClass4 = new JLabel("Class 4");
-		fillerClass4.setFont(f2);
-		fillerClass4.addMouseListener(new PopClickListener2());
-		class4.add(fillerClass4);
-
-		JLabel class4Grade = new JLabel("Grade: 0");
-		class4Grade.setFont(f2);
-		class4Grade.setBorder(paddingBorder2);
-		class4.add(class4Grade);
-
-		JLabel class4LetterGrade = new JLabel("Letter Grade: F");
-		class4LetterGrade.setFont(f2);
-		class4LetterGrade.setBorder(paddingBorder1);
-		class4.add(class4LetterGrade);
-
-		JLabel class4Hours = new JLabel("Hours: 0");
-		class4Hours.setFont(f2);
-		class4Hours.setBorder(paddingBorder1);
-		class4.add(class4Hours);
-
-		JLabel class4QualityPoints = new JLabel("Quality Points: 0");
-		class4QualityPoints.setFont(f2);
-		class4QualityPoints.setBorder(paddingBorder1);
-		class4.add(class4QualityPoints);
-
-		JButton btnDeleteClass5 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass5.setBorder(paddingBorder5);
-		btnDeleteClass5.setContentAreaFilled(false);
-		class5.add(btnDeleteClass5);
+		JButton btnDeleteMidterms = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteMidterms.setBorder(paddingBorder1);
+		btnDeleteMidterms.setContentAreaFilled(false);
 		
-		JLabel fillerClass5 = new JLabel("Class 5");
-		fillerClass5.setFont(f2);
-		class5.add(fillerClass5);
-		fillerClass5.addMouseListener(new PopClickListener2());
-
-		JLabel class5Grade = new JLabel("Grade: 0");
-		class5Grade.setFont(f2);
-		class5Grade.setBorder(paddingBorder2);
-		class5.add(class5Grade);
-
-		JLabel class5LetterGrade = new JLabel("Letter Grade: F");
-		class5LetterGrade.setFont(f2);
-		class5LetterGrade.setBorder(paddingBorder1);
-		class5.add(class5LetterGrade);
-
-		JLabel class5Hours = new JLabel("Hours: 0");
-		class5Hours.setFont(f2);
-		class5Hours.setBorder(paddingBorder1);
-		class5.add(class5Hours);
-
-		JLabel class5QualityPoints = new JLabel("Quality Points: 0");
-		class5QualityPoints.setFont(f2);
-		class5QualityPoints.setBorder(paddingBorder1);
-		class5.add(class5QualityPoints);
-
-		JButton btnDeleteClass6 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass6.setBorder(paddingBorder5);
-		btnDeleteClass6.setContentAreaFilled(false);
-		class6.add(btnDeleteClass6);
+		JButton btnDeleteFinalExam = new JButton(new ImageIcon(buttonIcon2));
+		btnDeleteFinalExam.setBorder(paddingBorder1);
+		btnDeleteFinalExam.setContentAreaFilled(false);
 		
-		JLabel fillerClass6 = new JLabel("Class 6");
-		fillerClass6.setFont(f2);
-		fillerClass6.addMouseListener(new PopClickListener2());
-		class6.add(fillerClass6);
+		JLabel fillerParticipation = new JLabel("Participation:");
+		fillerParticipation.setFont(f2);
+		fillerParticipation.setBorder(paddingBorder2);
+		fillerParticipation.addMouseListener(PopClickListener2.createDialog(fillerParticipation, text + ": Participation Grades"));
+		//pnlGradeTypes.add(fillerParticipation);
 		
-		JLabel class6Grade = new JLabel("Grade: 0");
-		class6Grade.setFont(f2);
-		class6Grade.setBorder(paddingBorder2);
-		class6.add(class6Grade);
+		JLabel fillerHomework = new JLabel("Homework:");
+		fillerHomework.setFont(f2);
+		fillerHomework.setBorder(paddingBorder2);
+		fillerHomework.addMouseListener(PopClickListener2.createDialog(fillerHomework, text + ": Homework Grades"));
+		//pnlGradeTypes.add(fillerHomework);
 
-		JLabel class6LetterGrade = new JLabel("Letter Grade: F");
-		class6LetterGrade.setFont(f2);
-		class6LetterGrade.setBorder(paddingBorder1);
-		class6.add(class6LetterGrade);
-
-		JLabel class6Hours = new JLabel("Hours: 0");
-		class6Hours.setFont(f2);
-		class6Hours.setBorder(paddingBorder1);
-		class6.add(class6Hours);
-
-		JLabel class6QualityPoints = new JLabel("Quality Points: 0");
-		class6QualityPoints.setFont(f2);
-		class6QualityPoints.setBorder(paddingBorder1);
-		class6.add(class6QualityPoints);
-
-		JButton btnDeleteClass7 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass7.setBorder(paddingBorder5);
-		btnDeleteClass7.setContentAreaFilled(false);
-		class7.add(btnDeleteClass7);
+		JLabel fillerLabs = new JLabel("Labs:");
+		fillerLabs.setFont(f2);
+		fillerLabs.setBorder(paddingBorder2);
+		fillerLabs.addMouseListener(PopClickListener2.createDialog(fillerLabs, text + ": Lab Grades"));
+		//pnlGradeTypes.add(fillerLabs);
 		
-		JLabel fillerClass7 = new JLabel("Class 7");
-		fillerClass7.setFont(f2);
-		fillerClass7.addMouseListener(new PopClickListener2());
-		class7.add(fillerClass7);
-
-		JLabel class7Grade = new JLabel("Grade: 0");
-		class7Grade.setFont(f2);
-		class7Grade.setBorder(paddingBorder2);
-		class7.add(class7Grade);
-
-		JLabel class7LetterGrade = new JLabel("Letter Grade: F");
-		class7LetterGrade.setFont(f2);
-		class7LetterGrade.setBorder(paddingBorder1);
-		class7.add(class7LetterGrade);
-
-		JLabel class7Hours = new JLabel("Hours: 0");
-		class7Hours.setFont(f2);
-		class7Hours.setBorder(paddingBorder1);
-		class7.add(class7Hours);
-
-		JLabel class7QualityPoints = new JLabel("Quality Points: 0");
-		class7QualityPoints.setFont(f2);
-		class7QualityPoints.setBorder(paddingBorder1);
-		class7.add(class7QualityPoints);
-
-		JButton btnDeleteClass8 = new JButton(new ImageIcon(buttonIcon2));
-		btnDeleteClass8.setBorder(paddingBorder5);
-		btnDeleteClass8.setContentAreaFilled(false);
-		class8.add(btnDeleteClass8);
+		JLabel fillerPapers = new JLabel("Papers:");
+		fillerPapers.setFont(f2);
+		fillerPapers.setBorder(paddingBorder2);
+		fillerPapers.addMouseListener(PopClickListener2.createDialog(fillerPapers, text + ": Paper Grades"));
 		
-		JLabel fillerClass8 = new JLabel("Class 8");
-		fillerClass8.setFont(f2);
-		fillerClass8.addMouseListener(new PopClickListener2());
-		class8.add(fillerClass8);
-
-		JLabel class8Grade = new JLabel("Grade: 0");
-		class8Grade.setFont(f2);
-		class8Grade.setBorder(paddingBorder2);
-		class8.add(class8Grade);
-
-		JLabel class8LetterGrade = new JLabel("Letter Grade: F");
-		class8LetterGrade.setFont(f2);
-		class8LetterGrade.setBorder(paddingBorder1);
-		class8.add(class8LetterGrade);
-
-		JLabel class8Hours = new JLabel("Hours: 0");
-		class8Hours.setFont(f2);
-		class8Hours.setBorder(paddingBorder1);
-		class8.add(class8Hours);
-
-		JLabel class8QualityPoints = new JLabel("Quality Points: 0");
-		class8QualityPoints.setFont(f2);
-		class8QualityPoints.setBorder(paddingBorder1);
-		class8.add(class8QualityPoints);
-
-		JLabel fillerSemester = new JLabel(text);
-		fillerSemester.setFont(f1);
-		semester.add(fillerSemester);
+		JLabel fillerQuizzes = new JLabel("Quizzes:");
+		fillerQuizzes.setFont(f2);
+		fillerQuizzes.setBorder(paddingBorder2);
+		fillerQuizzes.addMouseListener(PopClickListener2.createDialog(fillerQuizzes, text + ": Quiz Grades"));
 		
-		JButton btnAddClass = new JButton(new ImageIcon(buttonIcon4));
-		btnAddClass.setBorder(paddingBorder3);
-		btnAddClass.setContentAreaFilled(false);
-		addClass.add(btnAddClass);
-
-		JLabel semesterGPA = new JLabel("Semester GPA: 0.00");
-		semesterGPA.setFont(f2);
-		semesterGPA.setBorder(paddingBorder6);
-		gpaSemester.add(semesterGPA);
-
+		JLabel fillerMidterms = new JLabel("Midterms:");
+		fillerMidterms.setFont(f2);
+		fillerMidterms.setBorder(paddingBorder2);
+		fillerMidterms.addMouseListener(PopClickListener2.createDialog(fillerMidterms, text + ": Midterm Grades"));
+		
+		JLabel fillerFinalExam = new JLabel("Final Exam:");
+		fillerFinalExam.setFont(f2);
+		fillerFinalExam.setBorder(paddingBorder2);
+		fillerFinalExam.addMouseListener(PopClickListener2.createDialog(fillerHomework, text + ": Final Exam Grade"));
+		
+		JLabel fillerParticipationGrade = new JLabel("Grade: 0");
+		fillerParticipationGrade.setFont(f2);
+		fillerParticipationGrade.setBorder(paddingBorder2);
+		fillerParticipationGrade.addMouseListener(PopClickListener2.createDialog(fillerParticipationGrade, text + ": Participation Grades"));
+		
+		JLabel fillerHomeworkGrade = new JLabel("Grade: 0");
+		fillerHomeworkGrade.setFont(f2);
+		fillerHomeworkGrade.setBorder(paddingBorder2);
+		fillerHomeworkGrade.addMouseListener(PopClickListener2.createDialog(fillerHomeworkGrade, text + ": Homework Grades"));
+		
+		JLabel fillerLabsGrade = new JLabel("Grade: 0");
+		fillerLabsGrade.setFont(f2);
+		fillerLabsGrade.setBorder(paddingBorder2);
+		fillerLabsGrade.addMouseListener(PopClickListener2.createDialog(fillerLabsGrade, text + ": Lab Grades"));
+		
+		JLabel fillerPapersGrade = new JLabel("Grade: 0");
+		fillerPapersGrade.setFont(f2);
+		fillerPapersGrade.setBorder(paddingBorder2);
+		fillerPapersGrade.addMouseListener(PopClickListener2.createDialog(fillerPapersGrade, text + ": Papers Grades"));
+		
+		JLabel fillerQuizzesGrade = new JLabel("Grade: 0");
+		fillerQuizzesGrade.setFont(f2);
+		fillerQuizzesGrade.setBorder(paddingBorder2);
+		fillerQuizzesGrade.addMouseListener(PopClickListener2.createDialog(fillerQuizzesGrade, text + ": Quiz Grades"));
+		
+		JLabel fillerMidtermsGrade = new JLabel("Grade: 0");
+		fillerMidtermsGrade.setFont(f2);
+		fillerMidtermsGrade.setBorder(paddingBorder2);
+		fillerMidtermsGrade.addMouseListener(PopClickListener2.createDialog(fillerMidtermsGrade, text + ": Midterm Grades"));
+		
+		JLabel fillerFinalExamGrade = new JLabel("Grade: 0");
+		fillerFinalExamGrade.setFont(f2);
+		fillerFinalExamGrade.setBorder(paddingBorder2);
+		fillerFinalExamGrade.addMouseListener(PopClickListener2.createDialog(fillerFinalExamGrade, text + ": Final Exam Grade"));
+		
+		JLabel fillerParticipationWeight = new JLabel("Weight: 0%");
+		fillerParticipationWeight.setFont(f2);
+		fillerParticipationWeight.setBorder(paddingBorder2);
+		fillerParticipationWeight.addMouseListener(PopClickListener2.createDialog(fillerParticipationWeight, text + ": Participation Weight"));
+		
+		JLabel fillerHomeworkWeight = new JLabel("Weight: 0%");
+		fillerHomeworkWeight.setFont(f2);
+		fillerHomeworkWeight.setBorder(paddingBorder2);
+		fillerHomeworkWeight.addMouseListener(PopClickListener2.createDialog(fillerHomeworkWeight, text + ": Homework Weight"));
+		
+		JLabel fillerLabsWeight = new JLabel("Weight: 0%");
+		fillerLabsWeight.setFont(f2);
+		fillerLabsWeight.setBorder(paddingBorder2);
+		fillerLabsWeight.addMouseListener(PopClickListener2.createDialog(fillerLabsWeight, text + ": Lab Weight"));
+		
+		JLabel fillerPapersWeight = new JLabel("Weight: 0%");
+		fillerPapersWeight.setFont(f2);
+		fillerPapersWeight.setBorder(paddingBorder2);
+		fillerPapersWeight.addMouseListener(PopClickListener2.createDialog(fillerPapersWeight, text + ": Papers Weight"));
+		
+		JLabel fillerQuizzesWeight = new JLabel("Weight: 0%");
+		fillerQuizzesWeight.setFont(f2);
+		fillerQuizzesWeight.setBorder(paddingBorder2);
+		fillerQuizzesWeight.addMouseListener(PopClickListener2.createDialog(fillerQuizzesWeight, text + ": Quiz Weight"));
+		
+		JLabel fillerMidtermsWeight = new JLabel("Weight: 0%");
+		fillerMidtermsWeight.setFont(f2);
+		fillerMidtermsWeight.setBorder(paddingBorder2);
+		fillerMidtermsWeight.addMouseListener(PopClickListener2.createDialog(fillerMidtermsWeight, text + ": Midterm Weight"));
+		
+		JLabel fillerFinalExamWeight = new JLabel("Weight: 0%");
+		fillerFinalExamWeight.setFont(f2);
+		fillerFinalExamWeight.setBorder(paddingBorder2);
+		fillerFinalExamWeight.addMouseListener(PopClickListener2.createDialog(fillerFinalExamWeight, text + ": Final Exam Weight"));
+		
+		JButton btnAddGrade = new JButton(new ImageIcon(buttonIcon4));
+		btnAddGrade.setBorder(paddingBorder3);
+		btnAddGrade.setContentAreaFilled(false);
+		pnlAdd.add(btnAddGrade);
+		
 		JLabel totalGPA = new JLabel("Total GPA: 0.00");
+		totalGPA.setBorder(paddingBorder4);
 		totalGPA.setFont(f2);
-		totalGPA.setBorder(paddingBorder6);
-		gpaTotal.add(totalGPA);
+		pnlGPA.add(totalGPA);
 		
-		panel.add(semester);
-		panel.add(empty);
-		panel.add(class1);
-		panel.add(class2);
-		panel.add(class3);
-		panel.add(class4);
-		panel.add(class5);
-		panel.add(class6);
-		panel.add(class7);
-		panel.add(class8);
-		panel.add(addClass);
-		panel.add(gpaSemester);
-		panel.add(gpaTotal);
+		//panel.add(pnlDelete);
+		//panel.add(pnlGradeTypes);
+		
+		panel.add(btnDeleteParticipation);
+		panel.add(fillerParticipation);
+		panel.add(fillerParticipationGrade);
+		panel.add(fillerParticipationWeight);
+		
+		panel.add(btnDeleteHomework);
+		panel.add(fillerHomework);
+		panel.add(fillerHomeworkGrade);
+		panel.add(fillerHomeworkWeight);
+		
+		panel.add(btnDeleteLabs);
+		panel.add(fillerLabs);
+		panel.add(fillerLabsGrade);
+		panel.add(fillerLabsWeight);
+		
+		panel.add(btnDeletePapers);
+		panel.add(fillerPapers);
+		panel.add(fillerPapersGrade);
+		panel.add(fillerPapersWeight);
+		
+		panel.add(btnDeleteQuizzes);
+		panel.add(fillerQuizzes);
+		panel.add(fillerQuizzesGrade);
+		panel.add(fillerQuizzesWeight);
+		
+		panel.add(btnDeleteMidterms);
+		panel.add(fillerMidterms);
+		panel.add(fillerMidtermsGrade);
+		panel.add(fillerMidtermsWeight);
+		
+		panel.add(btnDeleteFinalExam);
+		panel.add(fillerFinalExam);
+		panel.add(fillerFinalExamGrade);
+		panel.add(fillerFinalExamWeight);
+		
+		container.add(pnlClass);
+		container.add(panel);
+		container.add(pnlAdd);
+		container.add(pnlGPA);
+		
+		return container;
+	}
+	
+	protected static JComponent makeTextPanel3(String text) {
+		//Font f1 = new Font("serif", Font.PLAIN, 36);
+		//Font f2 = new Font("serif", Font.PLAIN, 24);
+		//Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
+		//Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
+		//Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
 
+		//Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
+		//Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
+
+		JPanel panel = new JPanel(false);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		//Create the nodes.
+        DefaultMutableTreeNode top = new DefaultMutableTreeNode(text);
+        createNodes2(top);
+ 
+        //Create a tree that allows one selection at a time.
+        JTree tree = new JTree(top);
+        tree.getSelectionModel().setSelectionMode
+                (TreeSelectionModel.SINGLE_TREE_SELECTION);
+ 
+        //Create the scroll pane and add the tree to it. 
+        JScrollPane treeView = new JScrollPane(tree);
+		panel.add(treeView);
 		return panel;
 	}
 	
+	private static void createNodes1(DefaultMutableTreeNode top) {
+        DefaultMutableTreeNode category = null ;
+        DefaultMutableTreeNode subcategory = null;
+        DefaultMutableTreeNode subsubcategory = null;
+        category = new DefaultMutableTreeNode("General");
+        top.add(category);
+        
+        subcategory = new DefaultMutableTreeNode("Appearance");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Fonts and Colors");
+        subcategory.add(subsubcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Themes");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Semester Title");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Classes");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Number of Classes");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Other");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Grading Criteria");
+        subcategory.add(subsubcategory);
+        
+    }
+ 
+	private static void createNodes2(DefaultMutableTreeNode top) {
+        DefaultMutableTreeNode category = null ;
+        DefaultMutableTreeNode subcategory = null;
+        DefaultMutableTreeNode subsubcategory = null;
+        category = new DefaultMutableTreeNode("Student");
+        top.add(category);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 1");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 2");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 3");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 4");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 5");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 6");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 7");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+        
+        subcategory = new DefaultMutableTreeNode("Semester 8");
+        category.add(subcategory);
+        
+        subsubcategory = new DefaultMutableTreeNode("Class 1");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 2");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 3");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 4");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 5");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 6");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 7");
+        subcategory.add(subsubcategory);
+        subsubcategory = new DefaultMutableTreeNode("Class 8");
+        subcategory.add(subsubcategory);
+
+        
+    }
+
 	private static JFrame frame;
 	static String s2;
+	
 	static void createAndShowGUI(String s) {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator - Edit Class");
@@ -487,12 +725,13 @@ JPanel semester = new JPanel();
 	
 	static int semesterNumber = 9;
 	static String stringSemesterNumber = Integer.toString(semesterNumber);
+	
 	public final static void addSemester() {
 		String stringSemesterNumber = "Semester #" + Integer.toString(semesterNumber);
 		// tabbedPane.add(stringSemesterNumber, new ScrollPane());
 
 		Font f = new Font("serif", Font.PLAIN, 24);
-		JComponent pnlSemester = makeTextPanel(stringSemesterNumber);
+		JComponent pnlSemester = makeTextPanel2(stringSemesterNumber);
 		tabbedPane.addTab(stringSemesterNumber, pnlSemester);
 		tabbedPane.setFont(f);
 		initTabComponent(tabbedPane.getTabCount() - 1);
