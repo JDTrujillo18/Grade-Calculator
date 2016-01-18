@@ -115,7 +115,7 @@ public class EditSemester_Gui extends JPanel {
 		pnlSemester.setPreferredSize(d2);
 		pnlSemester.add(tabbedPane2);
 		
-		pnlInnerSemester = makeTextPanel2("Semester");
+		pnlInnerSemester = makeTextPanel2(s);
 		tabbedPane2.addTab(s, pnlInnerSemester);
 		tabbedPane2.setMnemonicAt(0, KeyEvent.VK_2);
 		tabbedPane2.setFont(f);
@@ -390,11 +390,14 @@ public class EditSemester_Gui extends JPanel {
 		Font f2 = new Font("serif", Font.PLAIN, 24);
 		Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 10, 10, 40);
 		Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 10, 10, 40);
-		Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
+		Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 755);
 
 		Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
 		Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 450, 10, 0);
-
+		Dimension d1 = new Dimension(900, 800);
+		Dimension d2 = new Dimension(900, 100);
+		Dimension d3 = new Dimension(900, 600);
+		Dimension d4 = new Dimension(900, 50);
 		//change_1 = false;
 		//change_2 = false;
 		//change_3 = false;
@@ -411,12 +414,17 @@ public class EditSemester_Gui extends JPanel {
 		//change_14 = false;
 		//change_15 = false;
 		//change_16 = false;
+		JPanel container = new JPanel(false);
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		container.setPreferredSize(d1);
 		
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
+		panel.setPreferredSize(d3);
+		
 		JPanel semester = new JPanel();
-
+		container.setPreferredSize(d2);
+		
 		JPanel class1 = new JPanel();
 		class1.setLayout(new BoxLayout(class1, BoxLayout.X_AXIS));
 
@@ -443,12 +451,14 @@ public class EditSemester_Gui extends JPanel {
 
 		JPanel addClass = new JPanel();
 		addClass.setLayout(new BoxLayout(addClass, BoxLayout.X_AXIS));
-
+		
 		JPanel gpaSemester = new JPanel();
 		gpaSemester.setLayout(new BoxLayout(gpaSemester, BoxLayout.X_AXIS));
+		gpaSemester.setPreferredSize(d4);
 		
 		JPanel gpaTotal = new JPanel();
 		gpaTotal.setLayout(new BoxLayout(gpaTotal, BoxLayout.X_AXIS));
+		gpaSemester.setPreferredSize(d4);
 		
 		BufferedImage buttonIcon = null;
 		try {
@@ -1079,7 +1089,6 @@ public class EditSemester_Gui extends JPanel {
 		totalGPA.setBorder(paddingBorder6);
 		gpaTotal.add(totalGPA);
 		
-		panel.add(semester);
 		panel.add(class1);
 		panel.add(class2);
 		panel.add(class3);
@@ -1089,10 +1098,13 @@ public class EditSemester_Gui extends JPanel {
 		panel.add(class7);
 		panel.add(class8);
 		panel.add(addClass);
-		panel.add(gpaSemester);
-		panel.add(gpaTotal);
+		
+		container.add(semester);
+		container.add(panel);
+		container.add(gpaSemester);
+		container.add(gpaTotal);
 
-		return panel;
+		return container;
 	}
 	
 	protected static JComponent makeTextPanel3(String text) {
