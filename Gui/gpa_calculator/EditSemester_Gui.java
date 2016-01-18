@@ -1333,7 +1333,8 @@ public class EditSemester_Gui extends JPanel {
 		menuItemClassView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
 		menuItemClassView.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent actionEvent){
-				
+				EditClass_Gui.makeVisible();
+				makeInvisible();
 			}
 		});
 		

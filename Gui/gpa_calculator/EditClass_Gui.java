@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -28,6 +30,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTree;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -89,7 +92,7 @@ public class EditClass_Gui extends JPanel {
 		pnlSemester.setPreferredSize(d2);
 		pnlSemester.add(tabbedPane);
 		
-		pnlInnerSemester = makeTextPanel2("Semester");
+		pnlInnerSemester = makeTextPanel2(s);
 		tabbedPane.addTab(s, pnlInnerSemester);
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_2);
 		tabbedPane.setFont(f);
@@ -107,7 +110,7 @@ public class EditClass_Gui extends JPanel {
 	}
 	
 	private static void initTabComponent(int i) {
-		tabbedPane.setTabComponentAt(i, new ButtonTabComponent5(tabbedPane));
+		tabbedPane1.setTabComponentAt(i, new ButtonTabComponent5(tabbedPane1));
 	}
 	
 	private static void initTabComponent2(int i) {
@@ -165,6 +168,10 @@ public class EditClass_Gui extends JPanel {
 		
 		JPanel pnlClass = new JPanel();
 		pnlClass.setPreferredSize(d2);
+		
+		JLabel lblClass = new JLabel(text);
+		lblClass.setFont(f2);
+		pnlClass.add(lblClass);
 		
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new GridLayout(7, 4));
@@ -699,10 +706,40 @@ public class EditClass_Gui extends JPanel {
 		menuEdit = new JMenu("Edit");
 		menuView = new JMenu("View");
 		
+		menuItemStudentView = new JMenuItem("Student View");
+		menuItemStudentView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, ActionEvent.CTRL_MASK));
+		menuItemStudentView.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent actionEvent){
+				GPA_Gui.makeVisible();
+				makeInvisible();
+			}
+		});
+		
+		menuItemSemesterView = new JMenuItem("Semester View");
+		menuItemSemesterView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
+		menuItemSemesterView.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent actionEvent){
+				EditSemester_Gui.makeVisible();
+				makeInvisible();
+			}
+		});
+		
+		menuItemClassView = new JMenuItem("Class View");
+		menuItemClassView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
+		menuItemClassView.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent actionEvent){
+				
+			}
+		});
+		
 		menuBar.add(menuFile);
 		menuFile.add(menuNew);
 		menuBar.add(menuEdit);
 		menuBar.add(menuView);
+		
+		menuView.add(menuItemStudentView);
+		menuView.add(menuItemSemesterView);
+		menuView.add(menuItemClassView);
 		
 		frame.setJMenuBar(menuBar);
 		// Add Panel to Frame

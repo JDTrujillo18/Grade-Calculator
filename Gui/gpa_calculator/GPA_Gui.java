@@ -640,7 +640,8 @@ public class GPA_Gui extends JPanel {
 		menuItemSemesterView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
 		menuItemSemesterView.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent actionEvent){
-				
+				EditSemester_Gui.makeVisible();
+				frame.setVisible(false);
 			}
 		});
 		
@@ -648,7 +649,8 @@ public class GPA_Gui extends JPanel {
 		menuItemClassView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
 		menuItemClassView.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent actionEvent){
-				
+				EditClass_Gui.makeVisible();
+				frame.setVisible(false);
 			}
 		});
 		
@@ -729,6 +731,11 @@ public class GPA_Gui extends JPanel {
 	public static void main(String[] args) {
 		// Schedule a job for the event dispatch thread:
 		// creating and showing this application's GUI.
+		EditSemester_Gui.createAndShowGUI("Semester 1");
+		EditSemester_Gui.makeInvisible();
+		EditClass_Gui.createAndShowGUI("Semester 1: Class 1");
+		EditClass_Gui.makeInvisible();
+		
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				// Turn off metal's use of bold fonts
@@ -736,5 +743,6 @@ public class GPA_Gui extends JPanel {
 				createAndShowGUI();
 			}
 		});
+		
 	}
 }
