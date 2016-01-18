@@ -10,7 +10,7 @@ Goal: To create an application that allows a user to customize and calculate cla
 
 ##**Update 1/17/2016**
 ***
-- Currently 2 frames
+- Currently 2 frames (Added 3rd Frame)
   - GPA_Gui (Initial Frame)
     - One large tabbed pane with various panels in BoxLayout.
     - Classes are right-clickable, producing a popup menu.
@@ -25,9 +25,9 @@ Goal: To create an application that allows a user to customize and calculate cla
 - Can create new tabs and close tabs.
 
 **What's Next**
-- Implementing a third and fourth frame for various other views and tasks.
+- Implementing a third (done) and fourth frame for various other views and tasks.
 - Implementing actions for all menu items.
-- Implementing Right-click context menus in Edit_Semester.
+- Implementing Right-click context menus in Edit_Semester (halfway done).
 - Implementing code to handle grade calculations.
 - Populating Settings and implementing functionality and customizability.
   
