@@ -1,5 +1,6 @@
 package gpa_calculator;
 
+//import statements
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.imageio.ImageIO;
@@ -31,110 +32,215 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-//Start commenting next week
+
+//Initialize class GPA_Gui
+
+/** 
+ * The GPA_Gui Class creates the main welcome frame of the application.
+ * Displays the Student View frame.
+ */
+@SuppressWarnings("serial")
 public class GPA_Gui extends JPanel {
+	
+	//Initialize frame
+	private static JFrame frame;
+	
+	//Initialize tabbed frame
 	private static JTabbedPane tabbedPane;
+	
+	//Initialize integer that keeps track of semester number for added semester tabs
+	static int semesterNumber = 9;
+	
+	//Initialize string that represents the integer that keeps track of semester number for added semester tabs
+	static String stringSemesterNumber = Integer.toString(semesterNumber);
+	
+	/** 
+	 * The GPA_Gui Method places a tabbed pane onto the frame.
+	 * Calls the methods initTabComponent(int i) and makeTextPanel(String text).
+	 */
 	public GPA_Gui() {
+		
+		//Define Layout of frame
 		super(new GridLayout(1, 1));
+		
+		//Initialize fonts
 		Font f = new Font("serif", Font.PLAIN, 24);
 		
+		//Initialize tabbed pane
 		tabbedPane = new JTabbedPane();
-
-		JComponent pnlSemester1 = makeTextPanel("Semester 1");
-		tabbedPane.addTab("Semester 1", pnlSemester1);
-		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
+		
+		// The following line enables to use scrolling tabs.
+		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		
+		//Set tabbed pane font
 		tabbedPane.setFont(f);
+		
+		//Initialize panels, add panels and set panel fonts
+		//Initialize panel that the Semester 1 tab will hold
+		//Call makeTextPanel for this panel
+		JComponent pnlSemester1 = makeTextPanel("Semester 1");
+		//Add tab with panel
+		tabbedPane.addTab("Semester 1", pnlSemester1);
+		//Set tab mnemonic
+		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
+		//Initialize panel that the Semester 2 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester2 = makeTextPanel("Semester 2");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 2", pnlSemester2);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
+		//Initialize panel that the Semester 3 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester3 = makeTextPanel("Semester 3");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 3", pnlSemester3);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
+		//Initialize panel that the Semester 4 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester4 = makeTextPanel("Semester 4");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 4", pnlSemester4);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
 
+		//Initialize panel that the Semester 5 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester5 = makeTextPanel("Semester 5");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 5", pnlSemester5);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_5);
 
+		//Initialize panel that the Semester 6 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester6 = makeTextPanel("Semester 6");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 6", pnlSemester6);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_6);
 
+		//Initialize panel that the Semester 7 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester7 = makeTextPanel("Semester 7");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 7", pnlSemester7);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_7);
 
+		//Initialize panel that the Semester 8 tab will hold
+		//Call makeTextPanel for this panel
 		JComponent pnlSemester8 = makeTextPanel("Semester 8");
+		//Add tab with panel
 		tabbedPane.addTab("Semester 8", pnlSemester8);
+		//Set tab mnemonic
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_8);
 
+		//For loop formatting each tab created and adding an exit button to each tab
+		//For semester 1 thru 8
 		for (int i = 0; i < 8; i++) {
+			//Call initTabComponent to format tab
 			initTabComponent(i);
 		}
 
 		// Add the tabbed pane to this panel.
 		add(tabbedPane);
-		// The following line enables to use scrolling tabs.
-		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 	}
 
+	/** 
+	 * The initTabComponent Method formats the tabs on the tabbed pane of Class GPA_Gui.
+	 * Implements Class ButtonTabComponent.
+	 */
 	private static void initTabComponent(int i) {
+		//Set tab component of specified tab to the ButtonTabComponent class
 		tabbedPane.setTabComponentAt(i, new ButtonTabComponent(tabbedPane));
 	}
 
+	/** 
+	 * The makeTextPanel Method adds the components that will be placed inside of each tab of the tabbed pane.
+	 * The Panel is implements with BoxLayouts.
+	 */
 	protected static JComponent makeTextPanel(String text) {
+		
+		//Initialize fonts
 		Font f1 = new Font("serif", Font.PLAIN, 36);
 		Font f2 = new Font("serif", Font.PLAIN, 24);
+		
+		//Initialize borders
 		Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
 		Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
 		Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
-
 		Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
 		Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
 
+		//Initialize container panel
 		JPanel panel = new JPanel(false);
+		//Set Layout to a BoxLayout along the Y-Axis(vertical)
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
+		//Initialize the panel that will hold the semester header
 		JPanel semester = new JPanel();
 		
+		//Initialize empty panel that will be used for spacing
 		JPanel empty = new JPanel();
 
+		//Initialize panel that will hold all class 1 components
 		JPanel class1 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class1.setLayout(new BoxLayout(class1, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 2 components
 		JPanel class2 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class2.setLayout(new BoxLayout(class2, BoxLayout.X_AXIS));
-
+		
+		//Initialize panel that will hold all class 3 components
 		JPanel class3 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class3.setLayout(new BoxLayout(class3, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 4 components
 		JPanel class4 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class4.setLayout(new BoxLayout(class4, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 5 components
 		JPanel class5 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class5.setLayout(new BoxLayout(class5, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 6 components
 		JPanel class6 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class6.setLayout(new BoxLayout(class6, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 7 components
 		JPanel class7 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class7.setLayout(new BoxLayout(class7, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold all class 8 components
 		JPanel class8 = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		class8.setLayout(new BoxLayout(class8, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold the add class button
 		JPanel addClass = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		addClass.setLayout(new BoxLayout(addClass, BoxLayout.X_AXIS));
 
+		//Initialize panel that will hold the Semester GPA
 		JPanel gpaSemester = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		gpaSemester.setLayout(new BoxLayout(gpaSemester, BoxLayout.X_AXIS));
 		
+		//Initialize panel that will hold the Total GPA
 		JPanel gpaTotal = new JPanel();
+		//Set panel layout to BoxLayout along the X-Axis(horizontal)
 		gpaTotal.setLayout(new BoxLayout(gpaTotal, BoxLayout.X_AXIS));
 		
 		BufferedImage buttonIcon = null;
@@ -442,12 +548,10 @@ public class GPA_Gui extends JPanel {
 		return panel;
 	}
 
-	/**
-	 * Create the GUI and show it. For thread safety, this method should be
-	 * invoked from the event dispatch thread.
+	/** 
+	 * The createAndShowGUI Method creates and adds the menubar, menus, and menuitems to be added to the frame.
+	 * Adds event handlers to the menuitems.
 	 */
-	private static JFrame frame;
-
 	private static void createAndShowGUI() {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator");
@@ -693,6 +797,9 @@ public class GPA_Gui extends JPanel {
 		frame.setVisible(true);
 	}
 
+	/** 
+	 * The resize Method resizes images given an image and a desired width and a desired height.
+	 */
 	public static BufferedImage resize(BufferedImage img, int newW, int newH) {  
 	    int w = img.getWidth();  
 	    int h = img.getHeight();  
@@ -705,19 +812,27 @@ public class GPA_Gui extends JPanel {
 	    return dimg;  
 	}  
 	
+	/** 
+	 * The makeVisible Method makes the frame visible.
+	 */
 	public static void makeVisible(){
 		frame.setVisible(true);
 	}
 	
+	/** 
+	 * The makeInvisible Method makes the frame hidden.
+	 */
 	public static void makeInvisible(){
 		frame.setVisible(false);
 	}
-	
-	static int semesterNumber = 9;
-	static String stringSemesterNumber = Integer.toString(semesterNumber);
+
+	/** 
+	 * The addSemester Method adds a uniform tab to the tabbed pane, using initTabComponent(int i).
+	 * Calls makeTextPanel(String text) in order to add necessary components.
+	 * Uses semesterNumber and stringSemesterNumber in order to add correct text to new tab.
+	 */
 	public final static void addSemester() {
 		String stringSemesterNumber = "Semester " + Integer.toString(semesterNumber);
-		// tabbedPane.add(stringSemesterNumber, new ScrollPane());
 
 		Font f = new Font("serif", Font.PLAIN, 24);
 		JComponent pnlSemester = makeTextPanel(stringSemesterNumber);
@@ -725,9 +840,12 @@ public class GPA_Gui extends JPanel {
 		tabbedPane.setFont(f);
 		initTabComponent(tabbedPane.getTabCount() - 1);
 		semesterNumber++;
-		// frame.add(new GPA_Gui(), BorderLayout.NORTH);
 	}
 
+	/** 
+	 * The main Method initializes the frame and creates all frames necessary for the application.
+	 * Makes GPA_Gui frame visible and hides other frames.
+	 */
 	public static void main(String[] args) {
 		// Schedule a job for the event dispatch thread:
 		// creating and showing this application's GUI.

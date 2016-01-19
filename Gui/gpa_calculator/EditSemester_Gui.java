@@ -53,22 +53,6 @@ public class EditSemester_Gui extends JPanel {
 	static JComponent pnlTreeContainer;
 	static JComponent pnlTree;
 	static String s2;
-	//static boolean change_1;
-	//static boolean change_2;
-	//static boolean change_3;
-	//static boolean change_4;
-	//static boolean change_5;
-	//static boolean change_6;
-	//static boolean change_7;
-	//static boolean change_8;
-	//static boolean change_9;
-	//static boolean change_10;
-	//static boolean change_11;
-	//static boolean change_12;
-	//static boolean change_13;
-	//static boolean change_14;
-	//static boolean change_15;
-	//static boolean change_16;
 	
 	public EditSemester_Gui(String s) {
 
