@@ -40,7 +40,7 @@ public class Menu_GPA_Gui extends JMenuBar {
 	JMenuItem menuItemSemesterView;
 	JMenuItem menuItemClassView;
 
-	static int semesterNumber = 9;
+	static int semesterNumber = 8;
 	
     public Menu_GPA_Gui() {
     	Font fmenu = new Font("sans-serif", Font.PLAIN, 12);
@@ -78,6 +78,7 @@ public class Menu_GPA_Gui extends JMenuBar {
 		menuItemNewSemester.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, ActionEvent.CTRL_MASK));
 		menuItemNewSemester.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
+				semesterNumber = semesterNumber + 1;
 				GPA_Gui.addSemester(semesterNumber);
 				JMenuItem menuItemNewSemesterX = new JMenuItem("Semester " + Integer.toString(semesterNumber));
 				menuItemNewSemesterX.addActionListener(new ActionListener() {
@@ -87,7 +88,6 @@ public class Menu_GPA_Gui extends JMenuBar {
 					}
 				});
 				menuEditSemester.add(menuItemNewSemesterX);
-				semesterNumber = semesterNumber + 1;
 			}
 		});
 		
