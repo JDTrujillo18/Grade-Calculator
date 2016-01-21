@@ -48,12 +48,6 @@ public class GPA_Gui extends JPanel {
 	//Initialize tabbed frame
 	private static JTabbedPane tabbedPane;
 	
-	//Initialize integer that keeps track of semester number for added semester tabs
-	static int semesterNumber = 9;
-	
-	//Initialize string that represents the integer that keeps track of semester number for added semester tabs
-	static String stringSemesterNumber = Integer.toString(semesterNumber);
-	
 	/** 
 	 * The GPA_Gui Method places a tabbed pane onto the frame.
 	 * Calls the methods initTabComponent(int i) and makeTextPanel(String text).
@@ -556,37 +550,6 @@ public class GPA_Gui extends JPanel {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator");
 
-		// Initialize MenuBar
-		JMenuBar menuBar;
-
-		// Initialize Menus
-		JMenu menuFile;
-		JMenu menuNew;
-		
-		JMenu menuEdit;
-		JMenu menuEditSemester;
-
-		JMenu menuView;
-		// Initialize MenuItems
-		JMenuItem menuItemQuit;
-		JMenuItem menuItemNewStudent;
-		JMenuItem menuItemNewSemester;
-		JMenuItem menuItemSettings;
-		JMenuItem menuItemSave;
-		JMenuItem menuItemSaveAs;
-		JMenuItem menuItemSaveAll;
-		JMenuItem menuItemEditSemester1;
-		JMenuItem menuItemEditSemester2;
-		JMenuItem menuItemEditSemester3;
-		JMenuItem menuItemEditSemester4;
-		JMenuItem menuItemEditSemester5;
-		JMenuItem menuItemEditSemester6;
-		JMenuItem menuItemEditSemester7;
-		JMenuItem menuItemEditSemester8;
-		JMenuItem menuItemStudentView;
-		JMenuItem menuItemSemesterView;
-		JMenuItem menuItemClassView;
-
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = frame.getContentPane();
 		// adjust to need.
@@ -594,203 +557,8 @@ public class GPA_Gui extends JPanel {
 		c.setPreferredSize(d);
 		// Add content to the window.
 		frame.add(new GPA_Gui(), BorderLayout.NORTH);
-
-		Font fmenu = new Font("sans-serif", Font.PLAIN, 12);
-		UIManager.put("Menu.font", fmenu);
-		UIManager.put("MenuItem.font", fmenu);
-		menuBar = new JMenuBar();
-		// Build the File menu.
-		menuFile = new JMenu("File");
-		menuFile.setMnemonic(KeyEvent.VK_A);
 		
-		menuNew = new JMenu("New");
-		// Build the Edit menu.
-		menuEdit = new JMenu("Edit");
-		menuEditSemester = new JMenu("Edit Semester");
-		
-		menuView = new JMenu("View");
-		
-		// a group of JMenuItems
-		menuItemQuit = new JMenuItem("Quit", KeyEvent.VK_T);
-		menuItemQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
-		menuItemQuit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				System.exit(0);
-			}
-		});
-
-		menuItemNewStudent = new JMenuItem("Student", KeyEvent.VK_2);
-		menuItemNewStudent.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
-		menuItemNewStudent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-
-			}
-		});
-
-		menuItemNewSemester = new JMenuItem("Semester", KeyEvent.VK_3);
-		menuItemNewSemester.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, ActionEvent.CTRL_MASK));
-		menuItemNewSemester.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				addSemester();
-				JMenuItem menuItemNewSemesterX = new JMenuItem("Semester " + stringSemesterNumber);
-				menuItemNewSemesterX.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent actionEvent) {
-						EditSemester_Gui.createAndShowGUI("Semester " + stringSemesterNumber);
-						frame.setVisible(false);
-					}
-				});
-				menuEditSemester.add(menuItemNewSemesterX);
-			}
-		});
-		
-		menuItemSettings = new JMenuItem("Settings");
-		menuItemSettings.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
-		
-		menuItemSave = new JMenuItem("Save");
-		menuItemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-		menuItemSave.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-		
-		menuItemSaveAs = new JMenuItem("Save As");
-		menuItemSaveAs.setAccelerator(KeyStroke.getKeyStroke("control shift S"));
-		menuItemSaveAs.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-		
-		menuItemSaveAll = new JMenuItem("Save All");
-		menuItemSaveAll.setAccelerator(KeyStroke.getKeyStroke("alt shift S"));
-		menuItemSaveAll.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent) {
-				
-			}
-		});
-
-		menuItemEditSemester1 = new JMenuItem("Semester 1");
-		menuItemEditSemester1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 1");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester2 = new JMenuItem("Semester 2");
-		menuItemEditSemester2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 2");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester3 = new JMenuItem("Semester 3");
-		menuItemEditSemester3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 3");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester4 = new JMenuItem("Semester 4");
-		menuItemEditSemester4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 4");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester5 = new JMenuItem("Semester 5");
-		menuItemEditSemester5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 5");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester6 = new JMenuItem("Semester 6");
-		menuItemEditSemester6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 6");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester7 = new JMenuItem("Semester 7");
-		menuItemEditSemester7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester7");
-				frame.setVisible(false);
-			}
-		});
-		menuItemEditSemester8 = new JMenuItem("Semester 8");
-		menuItemEditSemester8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				EditSemester_Gui.createAndShowGUI("Semester 8");
-				frame.setVisible(false);
-			}
-		});
-
-		
-		menuItemStudentView = new JMenuItem("Student View");
-		menuItemStudentView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, ActionEvent.CTRL_MASK));
-		menuItemStudentView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				
-			}
-		});
-		
-		menuItemSemesterView = new JMenuItem("Semester View");
-		menuItemSemesterView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
-		menuItemSemesterView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				EditSemester_Gui.makeVisible();
-				frame.setVisible(false);
-			}
-		});
-		
-		menuItemClassView = new JMenuItem("Class View");
-		menuItemClassView.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.CTRL_MASK));
-		menuItemClassView.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent actionEvent){
-				EditClass_Gui.makeVisible();
-				frame.setVisible(false);
-			}
-		});
-		
-		menuBar.add(menuFile);
-		menuFile.add(menuNew);
-		menuBar.add(menuEdit);
-		menuBar.add(menuView);
-		
-		// Add Exit Item to File Menu.
-		menuNew.add(menuItemNewStudent);
-		menuNew.add(menuItemNewSemester);
-		menuFile.addSeparator();
-		menuFile.add(menuItemSave);
-		menuFile.add(menuItemSaveAs);
-		menuFile.add(menuItemSaveAll);
-		menuFile.addSeparator();
-		menuFile.add(menuItemSettings);
-		menuFile.addSeparator();
-		menuFile.add(menuItemQuit);
-		
-		menuEdit.add(menuEditSemester);
-		
-		menuEditSemester.add(menuItemEditSemester1);
-		menuEditSemester.add(menuItemEditSemester2);
-		menuEditSemester.add(menuItemEditSemester3);
-		menuEditSemester.add(menuItemEditSemester4);
-		menuEditSemester.add(menuItemEditSemester5);
-		menuEditSemester.add(menuItemEditSemester6);
-		menuEditSemester.add(menuItemEditSemester7);
-		menuEditSemester.add(menuItemEditSemester8);
-		
-		menuView.add(menuItemStudentView);
-		menuView.add(menuItemSemesterView);
-		menuView.add(menuItemClassView);
-		
-		frame.setJMenuBar(menuBar);
+		frame.setJMenuBar(new Menu_GPA_Gui());
 		// Add Panel to Frame
 		// Display the window.
 		frame.pack();
@@ -831,7 +599,7 @@ public class GPA_Gui extends JPanel {
 	 * Calls makeTextPanel(String text) in order to add necessary components.
 	 * Uses semesterNumber and stringSemesterNumber in order to add correct text to new tab.
 	 */
-	public final static void addSemester() {
+	public final static void addSemester(int semesterNumber) {
 		String stringSemesterNumber = "Semester " + Integer.toString(semesterNumber);
 
 		Font f = new Font("serif", Font.PLAIN, 24);
@@ -839,7 +607,6 @@ public class GPA_Gui extends JPanel {
 		tabbedPane.addTab(stringSemesterNumber, pnlSemester);
 		tabbedPane.setFont(f);
 		initTabComponent(tabbedPane.getTabCount() - 1);
-		semesterNumber++;
 	}
 
 	/** 

@@ -1,6 +1,4 @@
 /bin
+/.gitignore
 /gpa_calculator/
-/confirm-question.png
 /images/
-/question.png
-/ButtonTabComponent2
