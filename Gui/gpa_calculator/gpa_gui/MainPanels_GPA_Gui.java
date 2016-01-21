@@ -1,11 +1,8 @@
 package gpa_calculator.gpa_gui;
 	
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
-
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class MainPanels_GPA_Gui extends JTabbedPane {

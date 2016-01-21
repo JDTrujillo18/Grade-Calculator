@@ -1,29 +1,12 @@
 package gpa_calculator.editsemester_gui;
 
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.JTree;
-import javax.swing.KeyStroke;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.border.Border;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeSelectionModel;
 
 import gpa_calculator.buttontabcomponents.ButtonTabComponent2;
 import gpa_calculator.buttontabcomponents.ButtonTabComponent3;
@@ -36,21 +19,14 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
+
 
 public class EditSemester_Gui extends JPanel {
 	private static JComponent pnlAll;
-	private static JTabbedPane tabbedPane1;
-	private static JTabbedPane tabbedPane2;
-	private static JTabbedPane tabbedPane3;
+	private static MainPanel1_EditSemester_Gui tabbedPane1;
+	private static MainPanel2_EditSemester_Gui tabbedPane2;
+	private static MainPanel3_EditSemester_Gui tabbedPane3;
 	static JComponent pnlInnerSemester;
 	static JComponent pnlInnerSettings;
 	static JComponent pnlSemester;
@@ -62,21 +38,15 @@ public class EditSemester_Gui extends JPanel {
 	public EditSemester_Gui(String s) {
 
 		super(new GridLayout(2, 1));
-		Font f = new Font("serif", Font.PLAIN, 24);
 		Dimension d1 = new Dimension(400, 800);
 		Dimension d2 = new Dimension(900, 800);
 		Dimension d3 = new Dimension(200, 800);
 		Dimension d4 = new Dimension(1500, 800);
-		tabbedPane1 = new JTabbedPane();
-		tabbedPane1.setPreferredSize(d1);
-		tabbedPane2 = new JTabbedPane();
-		tabbedPane2.setPreferredSize(d2);
-		tabbedPane3 = new JTabbedPane();
-		tabbedPane3.setPreferredSize(d3);
-		// The following line enables to use scrolling tabs.
-		tabbedPane1.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-		tabbedPane2.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-		tabbedPane3.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+
+		tabbedPane1 = new MainPanel1_EditSemester_Gui(s);
+		tabbedPane2 = new MainPanel2_EditSemester_Gui(s);
+		tabbedPane3 = new MainPanel3_EditSemester_Gui(s);
+		
 		pnlAll = new JPanel();
 		pnlAll.setPreferredSize(d4);
 		pnlAll.setLayout(new BoxLayout(pnlAll, BoxLayout.X_AXIS));
@@ -85,29 +55,13 @@ public class EditSemester_Gui extends JPanel {
 		pnlTreeContainer.setPreferredSize(d3);
 		pnlTreeContainer.add(tabbedPane3);
 		
-		pnlTree = makeTextPanel3("Student Tree View");
-		tabbedPane3.addTab("Student Tree View", pnlTree);
-		tabbedPane3.setMnemonicAt(0, KeyEvent.VK_3);
-		tabbedPane3.setFont(f);
-		
 		pnlSettings = new JPanel();
 		pnlSettings.setPreferredSize(d1);
 		pnlSettings.add(tabbedPane1);
-		
-		pnlInnerSettings = makeTextPanel1(s + " Settings");
-		tabbedPane1.addTab(s + " Settings", pnlInnerSettings);
-		tabbedPane1.setMnemonicAt(0, KeyEvent.VK_1);
-		tabbedPane1.setFont(f);
-		
 
 		pnlSemester = new JPanel();
 		pnlSemester.setPreferredSize(d2);
 		pnlSemester.add(tabbedPane2);
-		
-		pnlInnerSemester = makeTextPanel2(s);
-		tabbedPane2.addTab(s, pnlInnerSemester);
-		tabbedPane2.setMnemonicAt(0, KeyEvent.VK_2);
-		tabbedPane2.setFont(f);
 		
 		// Add the tabbed pane to this panel.
 		initTabComponent(0);
