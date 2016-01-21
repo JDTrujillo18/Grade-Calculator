@@ -25,9 +25,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent2;
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent3;
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent4;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent2;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent3;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent4;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

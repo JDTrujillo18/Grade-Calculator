@@ -37,9 +37,9 @@ import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent2;
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent4;
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent5;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent2;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent4;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent5;
 import gpa_calculator.editsemester_gui.EditSemester_Gui;
 import gpa_calculator.gpa_gui.GPA_Gui;
 import gpa_calculator.popupmenus.PopClickListener2;

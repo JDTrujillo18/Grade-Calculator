@@ -1,4 +1,4 @@
-package gpa_calculator.ButtonTapComponents;
+package gpa_calculator.buttontabcomponents;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

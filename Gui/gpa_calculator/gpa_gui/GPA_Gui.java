@@ -3,7 +3,7 @@ package gpa_calculator.gpa_gui;
 //import statements
 import javax.swing.JPanel;
 
-import gpa_calculator.ButtonTapComponents.ButtonTabComponent;
+import gpa_calculator.buttontabcomponents.ButtonTabComponent;
 
 import javax.swing.JFrame;
 import javax.swing.JComponent;

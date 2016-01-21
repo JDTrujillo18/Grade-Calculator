@@ -1,4 +1,4 @@
-package gpa_calculator.createNodes;
+package gpa_calculator.createnodes;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 

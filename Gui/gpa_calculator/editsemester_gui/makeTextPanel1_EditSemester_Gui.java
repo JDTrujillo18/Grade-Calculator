@@ -6,7 +6,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreeSelectionModel;
 
-import gpa_calculator.createNodes.createNodes1;
+import gpa_calculator.createnodes.createNodes1;
 
 public class makeTextPanel1_EditSemester_Gui extends JPanel {
 	
