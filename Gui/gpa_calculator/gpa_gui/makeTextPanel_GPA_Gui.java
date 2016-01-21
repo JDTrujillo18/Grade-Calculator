@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.gpa_gui;
 
 import java.awt.Font;
 import java.awt.image.BufferedImage;
@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import gpa_calculator.popupmenus.PopClickListener;
 
 public class makeTextPanel_GPA_Gui extends JPanel {
 	

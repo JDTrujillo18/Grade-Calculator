@@ -1,7 +1,11 @@
-package gpa_calculator;
+package gpa_calculator.main;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import gpa_calculator.editclass_gui.EditClass_Gui;
+import gpa_calculator.editsemester_gui.EditSemester_Gui;
+import gpa_calculator.gpa_gui.GPA_Gui;
 
 public class Main {
 	/** 

@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.editsemester_gui;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -15,6 +15,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import gpa_calculator.gpa_gui.GPA_Gui;
+import gpa_calculator.popupmenus.PopClickListener;
 
 public class makeTextPanel2_EditSemester_Gui extends JPanel {
 	

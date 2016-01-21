@@ -1,11 +1,12 @@
-package gpa_calculator;
+package gpa_calculator.gpa_gui;
 
 //import statements
 import javax.swing.JPanel;
+
+import gpa_calculator.ButtonTapComponents.ButtonTabComponent;
+
 import javax.swing.JFrame;
 import javax.swing.JComponent;
-
-
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -76,7 +77,7 @@ public class GPA_Gui extends JPanel {
 	 * The createAndShowGUI Method creates and adds the menubar, menus, and menuitems to be added to the frame.
 	 * Adds event handlers to the menuitems.
 	 */
-	static void createAndShowGUI() {
+	public static void createAndShowGUI() {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator");
 

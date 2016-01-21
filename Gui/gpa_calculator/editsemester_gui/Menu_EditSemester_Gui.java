@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.editsemester_gui;
 
 
 import java.awt.Font;
@@ -12,6 +12,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
+
+import gpa_calculator.editclass_gui.EditClass_Gui;
+import gpa_calculator.gpa_gui.GPA_Gui;
 
  
 public class Menu_EditSemester_Gui extends JMenuBar {

@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.popupmenus;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-class PopUpDemo extends JPopupMenu {
+import gpa_calculator.editclass_gui.EditClass_Gui;
+import gpa_calculator.editsemester_gui.EditSemester_Gui;
+import gpa_calculator.gpa_gui.GPA_Gui;
+
+public class PopUpDemo extends JPopupMenu {
     JMenuItem anItem;
     public PopUpDemo(String s){
     	Font f = new Font("serif", Font.PLAIN, 16);

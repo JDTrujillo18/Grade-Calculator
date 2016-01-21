@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.gpa_gui;
 	
 import java.awt.Font;
 import java.awt.GridLayout;

@@ -1,4 +1,4 @@
-package gpa_calculator;
+package gpa_calculator.editclass_gui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -36,6 +36,13 @@ import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
+
+import gpa_calculator.ButtonTapComponents.ButtonTabComponent2;
+import gpa_calculator.ButtonTapComponents.ButtonTabComponent4;
+import gpa_calculator.ButtonTapComponents.ButtonTabComponent5;
+import gpa_calculator.editsemester_gui.EditSemester_Gui;
+import gpa_calculator.gpa_gui.GPA_Gui;
+import gpa_calculator.popupmenus.PopClickListener2;
 
 public class EditClass_Gui extends JPanel {
 	private static JTabbedPane tabbedPane;
@@ -654,7 +661,7 @@ public class EditClass_Gui extends JPanel {
 	private static JFrame frame;
 	static String s2;
 	
-	static void createAndShowGUI(String s) {
+	public static void createAndShowGUI(String s) {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator - Edit Class");
 		s2 = s;

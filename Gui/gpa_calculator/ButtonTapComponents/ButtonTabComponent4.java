@@ -1,8 +1,10 @@
-package gpa_calculator;
+package gpa_calculator.ButtonTapComponents;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -11,10 +13,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
-public class ButtonTabComponent5 extends JPanel {
+public class ButtonTabComponent4 extends JPanel {
 	private final JTabbedPane pane;
 
-	public ButtonTabComponent5(final JTabbedPane pane) {
+	public ButtonTabComponent4(final JTabbedPane pane) {
 		// unset default FlowLayout gaps
 		super(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		if (pane == null) {
@@ -26,7 +28,7 @@ public class ButtonTabComponent5 extends JPanel {
 		// make JLabel read titles from JTabbedPane
 		JLabel label = new JLabel() {
 			public String getText() {
-				int i = pane.indexOfTabComponent(ButtonTabComponent5.this);
+				int i = pane.indexOfTabComponent(ButtonTabComponent4.this);
 				if (i != -1) {
 					return pane.getTitleAt(i);
 				}
@@ -66,7 +68,7 @@ public class ButtonTabComponent5 extends JPanel {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			int i = pane.indexOfTabComponent(ButtonTabComponent5.this);
+			int i = pane.indexOfTabComponent(ButtonTabComponent4.this);
 			if (i != -1) {
 			    String title = "Confirm Delete";
 			    // display the JOptionPane showConfirmDialog
@@ -82,7 +84,7 @@ public class ButtonTabComponent5 extends JPanel {
 		private JPanel getPanel() {
 	        JPanel panel = new JPanel();
 	        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-	        JLabel label = new JLabel("This class will be removed from view, but not deleted.");
+	        JLabel label = new JLabel("This TreeView will be removed from view, but not deleted.");
 	        JLabel confirm = new JLabel("         Confirm removal?");
 	        JLabel empty = new JLabel("     ");
 	        JCheckBox checkBox = new JCheckBox("Don't show this message in the future");

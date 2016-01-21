@@ -1,13 +1,16 @@
-package gpa_calculator;
+package gpa_calculator.popupmenus;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-class PopClickListener2 extends MouseAdapter {
+public class PopClickListener extends MouseAdapter {
+	
+
 	public static MouseListener createDialog(JLabel b, final String message) {
 	    //                                    ^^^^^
 	    MouseListener mouseListener = new MouseAdapter() {
@@ -33,7 +36,7 @@ class PopClickListener2 extends MouseAdapter {
 
     private static void doPop(MouseEvent e, String s){
     	//String s = new String("Class 1");
-        PopUpDemo2 menu = new PopUpDemo2(s);
+        PopUpDemo menu = new PopUpDemo(s);
         menu.show(e.getComponent(), e.getX(), e.getY());
     }
 }
