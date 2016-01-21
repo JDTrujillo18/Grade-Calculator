@@ -140,20 +140,8 @@ public class EditSemester_Gui extends JPanel {
 	}
 	
 	protected static JComponent makeTextPanel3(String text) {
-		
-		JPanel panel = new JPanel(false);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		//Create the nodes.
-        createNodes2 createNodes2 = new createNodes2(text);
-        //Create a tree that allows one selection at a time.
-        JTree tree = new JTree(createNodes2);
-        tree.getSelectionModel().setSelectionMode
-                (TreeSelectionModel.SINGLE_TREE_SELECTION);
- 
-        //Create the scroll pane and add the tree to it. 
-        JScrollPane treeView = new JScrollPane(tree);
-		panel.add(treeView);
-		return panel;
+		makeTextPanel3_EditSemester_Gui textPanel3 = new makeTextPanel3_EditSemester_Gui(text);
+		return textPanel3;
 	}
 
 	private static JFrame frame;
