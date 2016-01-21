@@ -1,23 +1,10 @@
 package gpa_calculator;
 
 //import statements
-import javax.swing.JTabbedPane;
-import javax.swing.KeyStroke;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JComponent;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
+
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -26,13 +13,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 //Initialize class GPA_Gui
 
@@ -95,7 +76,7 @@ public class GPA_Gui extends JPanel {
 	 * The createAndShowGUI Method creates and adds the menubar, menus, and menuitems to be added to the frame.
 	 * Adds event handlers to the menuitems.
 	 */
-	private static void createAndShowGUI() {
+	static void createAndShowGUI() {
 		// Create and set up the window.
 		frame = new JFrame("GPA Calculator");
 
@@ -158,25 +139,4 @@ public class GPA_Gui extends JPanel {
 		initTabComponent(tabbedPane.getTabCount() - 1);
 	}
 
-	/** 
-	 * The main Method initializes the frame and creates all frames necessary for the application.
-	 * Makes GPA_Gui frame visible and hides other frames.
-	 */
-	public static void main(String[] args) {
-		// Schedule a job for the event dispatch thread:
-		// creating and showing this application's GUI.
-		EditSemester_Gui.createAndShowGUI("Semester 1");
-		EditSemester_Gui.makeInvisible();
-		EditClass_Gui.createAndShowGUI("Semester 1: Class 1");
-		EditClass_Gui.makeInvisible();
-		
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				// Turn off metal's use of bold fonts
-				UIManager.put("swing.boldMetal", Boolean.FALSE);
-				createAndShowGUI();
-			}
-		});
-		
-	}
 }
