@@ -128,42 +128,6 @@ public class EditSemester_Gui extends JPanel {
 	private static void initTabComponent3(int i) {
 		tabbedPane3.setTabComponentAt(i, new ButtonTabComponent4(tabbedPane3));
 	}
-	
-	private static void createNodes1(DefaultMutableTreeNode top) {
-        DefaultMutableTreeNode category = null ;
-        DefaultMutableTreeNode subcategory = null;
-        DefaultMutableTreeNode subsubcategory = null;
-        category = new DefaultMutableTreeNode("General");
-        top.add(category);
-        
-        subcategory = new DefaultMutableTreeNode("Appearance");
-        category.add(subcategory);
-        
-        subsubcategory = new DefaultMutableTreeNode("Fonts and Colors");
-        subcategory.add(subsubcategory);
-        
-        subsubcategory = new DefaultMutableTreeNode("Themes");
-        subcategory.add(subsubcategory);
-        
-        subcategory = new DefaultMutableTreeNode("Semester");
-        category.add(subcategory);
-        
-        subsubcategory = new DefaultMutableTreeNode("Semester Title");
-        subcategory.add(subsubcategory);
-        
-        subcategory = new DefaultMutableTreeNode("Classes");
-        category.add(subcategory);
-        
-        subsubcategory = new DefaultMutableTreeNode("Number of Classes");
-        subcategory.add(subsubcategory);
-        
-        subcategory = new DefaultMutableTreeNode("Other");
-        category.add(subcategory);
-        
-        subsubcategory = new DefaultMutableTreeNode("Grading Criteria");
-        subcategory.add(subsubcategory);
-        
-    }
  
 	private static void createNodes2(DefaultMutableTreeNode top) {
         DefaultMutableTreeNode category = null ;
@@ -336,47 +300,17 @@ public class EditSemester_Gui extends JPanel {
     }
 
 	protected static JComponent makeTextPanel1(String text) {
-		//Font f1 = new Font("serif", Font.PLAIN, 36);
-		//Font f2 = new Font("serif", Font.PLAIN, 24);
-		//Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
-		//Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
-		//Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
-
-		//Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
-		//Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
-
-		JPanel panel = new JPanel(false);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		//Create the nodes.
-        DefaultMutableTreeNode top = new DefaultMutableTreeNode(text);
-        createNodes1(top);
- 
-        //Create a tree that allows one selection at a time.
-        JTree tree = new JTree(top);
-        tree.getSelectionModel().setSelectionMode
-                (TreeSelectionModel.SINGLE_TREE_SELECTION);
- 
-        //Create the scroll pane and add the tree to it. 
-        JScrollPane treeView = new JScrollPane(tree);
-		panel.add(treeView);
-		return panel;
+		makeTextPanel1_EditSemester_Gui textPanel1 = new makeTextPanel1_EditSemester_Gui(text);
+		return textPanel1;
 	}
 
 	protected static JComponent makeTextPanel2(String text) {
-		makeTextPanel2_EditSemester_Gui makeTextPanel2_EditSemester_Gui = new makeTextPanel2_EditSemester_Gui(text);
-		return makeTextPanel2_EditSemester_Gui;
+		makeTextPanel2_EditSemester_Gui makeTextPanel2 = new makeTextPanel2_EditSemester_Gui(text);
+		return makeTextPanel2;
 	}
 	
 	protected static JComponent makeTextPanel3(String text) {
-		//Font f1 = new Font("serif", Font.PLAIN, 36);
-		//Font f2 = new Font("serif", Font.PLAIN, 24);
-		//Border paddingBorder1 = BorderFactory.createEmptyBorder(10, 40, 10, 40);
-		//Border paddingBorder2 = BorderFactory.createEmptyBorder(10, 600, 10, 40);
-		//Border paddingBorder3 = BorderFactory.createEmptyBorder(10, 0, 10, 1435);
-
-		//Border paddingBorder5 = BorderFactory.createEmptyBorder(10, 0, 10, 10);
-		//Border paddingBorder6 = BorderFactory.createEmptyBorder(10, 1260, 10, 0);
-
+		
 		JPanel panel = new JPanel(false);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		//Create the nodes.
