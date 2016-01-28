@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import gpa_calculator.buttontabcomponents.ButtonTabComponent;
 
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -14,6 +15,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 //Initialize class GPA_Gui
@@ -41,7 +43,7 @@ public class GPA_Gui extends JPanel {
 		
 		//Define Layout of frame
 		super(new GridLayout(1, 1));
-		
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icon.png")));
 		tabbedPane = new MainPanels_GPA_Gui();
 		
 		//For loop formatting each tab created and adding an exit button to each tab

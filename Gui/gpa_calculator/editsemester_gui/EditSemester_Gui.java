@@ -1,6 +1,5 @@
 package gpa_calculator.editsemester_gui;
 
-import javax.swing.JTabbedPane;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
@@ -19,6 +18,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 
@@ -38,6 +38,7 @@ public class EditSemester_Gui extends JPanel {
 	public EditSemester_Gui(String s) {
 
 		super(new GridLayout(2, 1));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icon.png")));
 		Dimension d1 = new Dimension(400, 800);
 		Dimension d2 = new Dimension(900, 800);
 		Dimension d3 = new Dimension(200, 800);

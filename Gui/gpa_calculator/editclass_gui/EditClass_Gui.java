@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -58,6 +59,7 @@ public class EditClass_Gui extends JPanel {
 	
 	public EditClass_Gui(String s) {
 		super(new GridLayout(2, 1));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icon.png")));
 		Font f = new Font("serif", Font.PLAIN, 24);
 		Dimension d1 = new Dimension(400, 800);
 		Dimension d2 = new Dimension(900, 800);
