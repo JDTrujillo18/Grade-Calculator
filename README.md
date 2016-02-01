@@ -7,6 +7,13 @@ Jered Dominguez-Trujillo
 ##Info
 A Personal Project where I am creating a GPA application with the Java programming language.
 Goal: To create an application that allows a user to customize and calculate class grades in terms of weights, dropped grades, and other common procedures through a graphical user interface.
+##**Update 2/1/2016**
+***
+- Refactored code into separate classes
+- Maintained functionality already present
+- Navigation between all 3 frames is possible
+- Added temporary application icon
+
 
 ##**Update 1/17/2016**
 ***
@@ -25,9 +32,9 @@ Goal: To create an application that allows a user to customize and calculate cla
 - Can create new tabs and close tabs.
 
 **What's Next**
-- Implementing a third (done) and fourth frame for various other views and tasks.
+- Implementing a third (done) and fourth frame for various other views and tasks. 
 - Implementing actions for all menu items.
 - Implementing Right-click context menus in Edit_Semester (halfway done).
-- Implementing code to handle grade calculations.
+- Implementing code to handle grade calculations. (Coming Soon)
 - Populating Settings and implementing functionality and customizability.
   

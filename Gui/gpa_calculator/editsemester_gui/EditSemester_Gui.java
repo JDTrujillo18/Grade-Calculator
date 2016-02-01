@@ -34,6 +34,7 @@ public class EditSemester_Gui extends JPanel {
 	static JComponent pnlTreeContainer;
 	static JComponent pnlTree;
 	static String s2;
+	private static JFrame frame;
 	
 	public EditSemester_Gui(String s) {
 
@@ -103,7 +104,6 @@ public class EditSemester_Gui extends JPanel {
 		return textPanel3;
 	}
 
-	private static JFrame frame;
 	
 	public static void createAndShowGUI(String s) {
 		// Create and set up the window.
