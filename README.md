@@ -10,7 +10,7 @@ Goal: To create an application that allows a user to customize and calculate cla
 
 ##**Update 2/5/2016**
 ***
-- Moved to a new repository
+- Moved to a new repository https://github.com/JDTrujillo18/Java-App-GPA
 
 ##**Update 2/1/2016**
 ***
