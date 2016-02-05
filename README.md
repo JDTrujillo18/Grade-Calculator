@@ -7,6 +7,11 @@ Jered Dominguez-Trujillo
 ##Info
 A Personal Project where I am creating a GPA application with the Java programming language.
 Goal: To create an application that allows a user to customize and calculate class grades in terms of weights, dropped grades, and other common procedures through a graphical user interface.
+
+##**Update 2/5/2016**
+***
+- Moved to a new repository
+
 ##**Update 2/1/2016**
 ***
 - Refactored code into separate classes
